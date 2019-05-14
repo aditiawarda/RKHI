@@ -1,4 +1,4 @@
-<!--Author: W3layouts
+<!-- Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
@@ -45,7 +45,17 @@ $aktif = $this->uri->segment(2);
 						<ul class="nav navbar-nav navbar-right">
 							<li <?php if ($aktif == "") echo 'class="active"'; ?>><a href="<?php echo base_url() ?>"><span data-hover="Beranda">Beranda</span></a></li>
 							<li <?php if ($aktif == "galeri") echo 'class="active"'; ?>><a href="<?php echo base_url() ?>Frontend/galeri"><span data-hover="Galeri">Galeri</span></a><span class="line1">|</span></li>
-							<li <?php if ($aktif == "login") echo 'class="active"'; ?>><a href="<?php echo base_url() ?>Auth/login"><span data-hover="Login">Login</span></a><span class="line1">|</span></li>
+
+						<!-- Tampilan login session saat user sudah melakukan login tampilkan dashboard di navbar -->
+							<?php if ($this->session->userdata('identity')) { ?> 
+								
+								<li <?php if ($aktif == "login") echo 'class="active"'; ?>><a href="<?php echo base_url() ?>Auth/login"><span data-hover="Dashboard">Dashboard</span></a><span class="line1">|</span></li>
+							 <?php }
+
+						// Tampilan Saat session user belum melakukan login... Tampilkan menu login pada navbar
+							 else { ?>
+							 	<li <?php if ($aktif == "login") echo 'class="active"'; ?>><a href="<?php echo base_url() ?>Auth/login"><span data-hover="Login">Login</span></a><span class="line1">|</span></li>
+							<?php }?>
 						</ul>
 					</div>
 				</div>
@@ -89,4 +99,4 @@ $aktif = $this->uri->segment(2);
 		<a href="#" class="callbacks_nav callbacks1_nav prev">Previous</a><a href="#" class="callbacks_nav callbacks1_nav next">Next</a>
 	</div>
 	<!-- /Slider  -->
-	<!--//banner-->
+	<!--//banner
