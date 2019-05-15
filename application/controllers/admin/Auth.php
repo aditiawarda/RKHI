@@ -28,6 +28,7 @@ class Auth extends CI_Controller {
 		{
 			// redirect them to the home page because they must be an administrator to view this
 			return show_error('You must be an administrator to view this page.');
+			redirect('Auth/logout', 'refresh');
 		}
 		else
 		{
