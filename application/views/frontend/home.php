@@ -21,7 +21,7 @@
 		<figure class="col-md-3 effect-kira">
 			<img src="<?php echo base_url() ?>frontend/web/images/front/t1.jpg" alt="t1" class="img-responsive" />
 			<figcaption>
-				<h4>Rizky <span>Aditya</span></h4>
+				<h4>Rizky <span>Aditia</span></h4>
 				<h5>Backend Developer</h5>
 				<p>
 					<a href="#" target="_blank" class="fa fa-facebook icon-border facebook"></a>
