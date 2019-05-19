@@ -10,6 +10,7 @@ class Frontend extends CI_Controller
         $this->load->model('Frontend_model','fm');
         $this->load->model('Kriteria_model','mod_kriteria');
 		$this->load->library('M_db');
+        $this->load->model('Video_model');
 
     }
 
@@ -20,7 +21,8 @@ class Frontend extends CI_Controller
 
     public function galeri(){
     	//$this->load->view('welcome_message');
-    	$this->template->load('template/frontend/home', 'frontend/galeri');
+        $data['video_content'] = $this->Video_model->show_video()->result();
+        $this->template->load('template/frontend/home', 'frontend/galeri', $data);
     }
 
     public function forumdiskusi(){

@@ -54,5 +54,4 @@ class Video extends CI_Controller
 		$data['video_kategori'] = $this->Video_model->show_content()->result();
 		$this->template->load('template/backend/dashboard', 'video/delete', $data);
 	}
-    
 }

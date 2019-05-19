@@ -16,4 +16,8 @@ class Video_model extends CI_Model{
       	$this->db->insert($table,$data);
       }
 
+      public function show_video(){
+            return $this->db->get('video_content');
+      }
+
 }
