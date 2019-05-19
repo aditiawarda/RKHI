@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2019 at 08:57 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Generation Time: May 19, 2019 at 10:47 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -99,6 +99,27 @@ INSERT INTO `alternatif_nilai` (`id_alternatif_nilai`, `id_alternatif`, `id_krit
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `chat`
+--
+
+CREATE TABLE `chat` (
+  `id_chat` int(11) NOT NULL,
+  `id_konten` int(11) NOT NULL,
+  `isi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chat`
+--
+
+INSERT INTO `chat` (`id_chat`, `id_konten`, `isi`) VALUES
+(1, 1, 'hgghg'),
+(2, 1, 'awdawdawdadwaw'),
+(3, 1, 'wdad');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `client`
 --
 
@@ -153,6 +174,28 @@ CREATE TABLE `groups` (
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'Administrator'),
 (2, 'members', 'General User');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `konten_diskusi`
+--
+
+CREATE TABLE `konten_diskusi` (
+  `id_konten` int(11) NOT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `judul_konten` varchar(255) NOT NULL,
+  `isi_konten` varchar(255) NOT NULL,
+  `date_created_konten` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `konten_diskusi`
+--
+
+INSERT INTO `konten_diskusi` (`id_konten`, `id_user`, `judul_konten`, `isi_konten`, `date_created_konten`) VALUES
+(3, 0, 'ada', 'adad', '2019-05-19 08:40:53'),
+(4, 0, 'ad', 'adad', '2019-05-19 08:41:56');
 
 -- --------------------------------------------------------
 
@@ -217,14 +260,6 @@ CREATE TABLE `login_attempts` (
   `login` varchar(100) NOT NULL,
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `login_attempts`
---
-
-INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
-(1, '::1', 'admin@admin', 1558224440),
-(2, '::1', 'admin@admin', 1558224450);
 
 -- --------------------------------------------------------
 
@@ -473,7 +508,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', 'suPo-mllp0t.uEXFBxuWeu01206297e748015fbf', 1501472329, 'ct7pXg3o0mL4spmQnYiVn.', 1268889823, 1558232217, 1, 'Banni', 'Pebriansyah', 'ADMIN', '081296977703');
+(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', 'suPo-mllp0t.uEXFBxuWeu01206297e748015fbf', 1501472329, 'ct7pXg3o0mL4spmQnYiVn.', 1268889823, 1557851736, 1, 'Banni', 'Pebriansyah', 'ADMIN', '081296977703');
 
 -- --------------------------------------------------------
 
@@ -495,40 +530,6 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (7, 1, 1),
 (8, 1, 2);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `video_content`
---
-
-CREATE TABLE `video_content` (
-  `id` int(11) NOT NULL,
-  `judul` varchar(254) NOT NULL,
-  `kategori` varchar(254) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `video_kategori`
---
-
-CREATE TABLE `video_kategori` (
-  `id` int(11) NOT NULL,
-  `kategori_video` varchar(254) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `video_kategori`
---
-
-INSERT INTO `video_kategori` (`id`, `kategori_video`) VALUES
-(1, 'HUKUM KELUARGA'),
-(2, 'KEUANGAN SYARIAH'),
-(3, 'PIDANA ISLAM'),
-(4, 'FIQIH IBADAH'),
-(5, 'AL-QUR\'AN & HADIST');
-
 --
 -- Indexes for dumped tables
 --
@@ -544,6 +545,12 @@ ALTER TABLE `alternatif`
 --
 ALTER TABLE `alternatif_nilai`
   ADD PRIMARY KEY (`id_alternatif_nilai`);
+
+--
+-- Indexes for table `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id_chat`);
 
 --
 -- Indexes for table `client`
@@ -562,6 +569,12 @@ ALTER TABLE `galeri`
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `konten_diskusi`
+--
+ALTER TABLE `konten_diskusi`
+  ADD PRIMARY KEY (`id_konten`);
 
 --
 -- Indexes for table `kriteria`
@@ -627,18 +640,6 @@ ALTER TABLE `users_groups`
   ADD KEY `fk_users_groups_groups1_idx` (`group_id`);
 
 --
--- Indexes for table `video_content`
---
-ALTER TABLE `video_content`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `video_kategori`
---
-ALTER TABLE `video_kategori`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -653,6 +654,12 @@ ALTER TABLE `alternatif`
 --
 ALTER TABLE `alternatif_nilai`
   MODIFY `id_alternatif_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=236;
+
+--
+-- AUTO_INCREMENT for table `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `client`
@@ -673,6 +680,12 @@ ALTER TABLE `groups`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `konten_diskusi`
+--
+ALTER TABLE `konten_diskusi`
+  MODIFY `id_konten` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `kriteria`
 --
 ALTER TABLE `kriteria`
@@ -688,7 +701,7 @@ ALTER TABLE `kriteria_nilai`
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `nilai_kategori`
@@ -731,18 +744,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `users_groups`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `video_content`
---
-ALTER TABLE `video_content`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT for table `video_kategori`
---
-ALTER TABLE `video_kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
