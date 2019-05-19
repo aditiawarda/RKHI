@@ -60,7 +60,7 @@
 		<figure class="col-md-3 effect-kira">
 			<img src="<?php echo base_url() ?>frontend/web/images/front/t4.jpg" alt="t4" class="img-responsive" />
 			<figcaption>
-				<h4>Aditya <span>Warda</span></h4>
+				<h4>Aditia <span>Wardani</span></h4>
 				<h5>Project Manager</h5>
 				<p>
 					<a href="#" target="_blank" class="fa fa-facebook icon-border facebook"></a>

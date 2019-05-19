@@ -1,5 +1,5 @@
 <div class="jumbroton">
-	<h1 style="text-decoration: underline;">Tambah Video</h1><br>
+	<h1 style="text-decoration: underline;">Delete Video</h1><br>
 </div>
 
 <form enctype="multipart/form-data" action="<?php echo base_url(). 'Video/insert'; ?>" method="post">
@@ -7,13 +7,17 @@
 		<table class="table table-hover">
 			<tr class="success">
 				<th class="thead-light" style="font-weight: bold; font-family: sans-serif;">Judul video</th>
+				<th class="thead-light" style="font-weight: bold; font-family: sans-serif;">Hapus video</th>
 			</tr>
 			<tr class="active">
-				<td>
 					<?php foreach($video_kategori as $data2){ ?>
-						<?= $data2->judul ?>
+						<td>
+							<?= $data2->judul ?>
+						</td>
+						<td>
+							<button type="submit" class="btn-danger" style="border-radius: 30px;">Hapus</button>
+						</td>
 					<?php }?>
-				</td>
 			</tr>
 		</table>
 	</div>
