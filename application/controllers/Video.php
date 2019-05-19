@@ -29,21 +29,22 @@ class Video extends CI_Controller
 		$judul = $this->input->post('judul');
 		$kategori = $this->input->post('kategori');
 
-		$data = array(
-			'judul' => $judul,
-			'kategori' => $kategori
-			);
-
         $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'mkv|mp4|';
+        $config['allowed_types'] = 'mkv|mp4';
         $this->load->library('upload', $config);
-        
+
         if (!$this->upload->do_upload('video')) {
             $error = $this->upload->display_errors();
             print_r($error);
         } else {
             $result = $this->upload->data();
             print_r($result);
+        	
+        	$data = array(
+				'judul' => $judul,
+				'kategori' => $kategori,
+				'file_type' => $result['file_ext']
+			);
 			$this->Video_model->input_data($data,'video_content');
 			redirect('admin/Dashboard');
         }
@@ -53,5 +54,25 @@ class Video extends CI_Controller
 	{
 		$data['video_kategori'] = $this->Video_model->show_content()->result();
 		$this->template->load('template/backend/dashboard', 'video/delete', $data);
+	}
+
+	public function actionDelete()
+	{
+		$id = $this->uri->segment(3);
+		$setName = $this->Video_model->getVideoName($id);
+		if($setName->num_rows() > 0){
+			$getName = $setName->row_array();
+			$getVideoName = './uploads/'.$getName['judul'].$getName['file_type'];
+			$deleteFileContent = unlink($getVideoName);
+			if($delete){
+				$this->session->set_flashdata('failed', 'Video Gagal Dihapus');
+			}else{
+				$delete = $this->Video_model->delete($id);
+				$this->session->set_flashdata('success', 'Video Berhasil Dihapus');
+			}
+		}else{
+			$this->session->set_flashdata('failed', 'Video Gagal Dihapus');
+		}
+		redirect('Video/delete');
 	}
 }
