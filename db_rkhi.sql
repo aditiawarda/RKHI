@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2019 at 06:45 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Generation Time: May 19, 2019 at 08:57 AM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -217,6 +217,14 @@ CREATE TABLE `login_attempts` (
   `login` varchar(100) NOT NULL,
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `login_attempts`
+--
+
+INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
+(1, '::1', 'admin@admin', 1558224440),
+(2, '::1', 'admin@admin', 1558224450);
 
 -- --------------------------------------------------------
 
@@ -465,7 +473,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', 'suPo-mllp0t.uEXFBxuWeu01206297e748015fbf', 1501472329, 'ct7pXg3o0mL4spmQnYiVn.', 1268889823, 1557851736, 1, 'Banni', 'Pebriansyah', 'ADMIN', '081296977703');
+(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', 'suPo-mllp0t.uEXFBxuWeu01206297e748015fbf', 1501472329, 'ct7pXg3o0mL4spmQnYiVn.', 1268889823, 1558232217, 1, 'Banni', 'Pebriansyah', 'ADMIN', '081296977703');
 
 -- --------------------------------------------------------
 
@@ -486,6 +494,40 @@ CREATE TABLE `users_groups` (
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (7, 1, 1),
 (8, 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `video_content`
+--
+
+CREATE TABLE `video_content` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(254) NOT NULL,
+  `kategori` varchar(254) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `video_kategori`
+--
+
+CREATE TABLE `video_kategori` (
+  `id` int(11) NOT NULL,
+  `kategori_video` varchar(254) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `video_kategori`
+--
+
+INSERT INTO `video_kategori` (`id`, `kategori_video`) VALUES
+(1, 'HUKUM KELUARGA'),
+(2, 'KEUANGAN SYARIAH'),
+(3, 'PIDANA ISLAM'),
+(4, 'FIQIH IBADAH'),
+(5, 'AL-QUR\'AN & HADIST');
 
 --
 -- Indexes for dumped tables
@@ -585,6 +627,18 @@ ALTER TABLE `users_groups`
   ADD KEY `fk_users_groups_groups1_idx` (`group_id`);
 
 --
+-- Indexes for table `video_content`
+--
+ALTER TABLE `video_content`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `video_kategori`
+--
+ALTER TABLE `video_kategori`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -634,7 +688,7 @@ ALTER TABLE `kriteria_nilai`
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `nilai_kategori`
@@ -652,7 +706,7 @@ ALTER TABLE `pesan`
 -- AUTO_INCREMENT for table `subkriteria`
 --
 ALTER TABLE `subkriteria`
-  MODIFY `id_subkriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id_subkriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `subkriteria_hasil`
@@ -677,6 +731,18 @@ ALTER TABLE `users`
 --
 ALTER TABLE `users_groups`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `video_content`
+--
+ALTER TABLE `video_content`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `video_kategori`
+--
+ALTER TABLE `video_kategori`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

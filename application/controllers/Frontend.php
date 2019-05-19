@@ -23,4 +23,8 @@ class Frontend extends CI_Controller
     	$this->template->load('template/frontend/home', 'frontend/galeri');
     }
 
+    public function forumdiskusi(){
+        $this->template->load('template/frontend/home', 'forumdiskusi/forumdiskusi');
+    }
+
 }

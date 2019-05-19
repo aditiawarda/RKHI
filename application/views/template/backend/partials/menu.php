@@ -74,9 +74,30 @@
 				<li <?php if ($page == "Auth" || $page == "auth") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('admin/Auth', '<span class=entypo-user> Users</span>'); ?></li>
 			</ul>
 		</li>
+<<<<<<< HEAD
 
 	<?php } ?>
 		<li><a href="javascript:;" onclick="jQuery('#modal-1').modal('show');"><i class="entypo-help"></i><span>Tentang</span></a></li>
+=======
+		
+		<!-- Video Content -->
+		<li <?php if ($pag == "Masukkan" || $pag == "masukkan" || $page == "Hapus" || $page == "hapus") echo 'class="active opened active multiple-expanded" '; ?>>
+			<a href="ui-panels.html">
+				<i class="fas fa-file-video"></i>
+				<span>Video</span>
+			</a>
+			<ul>
+				<li <?php if ($page == "Masukkan" || $page == "masukkan") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Video/index', '<i class="fas fa-film"></i><span> Tambahkan video</span>'); ?></li>
+
+				<li <?php if ($page == "Hapus" || $page == "hapus") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Video/delete', '<i class="fas fa-minus-circle"></i><span> Hapus video</span>'); ?></li>
+			</ul>
+		</li>
+		<!-- END Video Content -->
+
+		<li>
+			<a href="javascript:;" onclick="jQuery('#modal-1').modal('show');"><i class="entypo-help"></i><span>Tentang</span></a>
+		</li>
+>>>>>>> bdccb55db92219b5940306235917ae745b473174
 	</ul>
 
 </div>
