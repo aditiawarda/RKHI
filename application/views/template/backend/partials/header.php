@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/neon-forms.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/custom.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/skins/blue.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/libs/select2/select2.min.css"/>
 	<script src="<?= base_url() ?>assets/js/jquery-1.11.0.min.js"></script>
 	<script src="<?=base_url();?>assets/libs/select2/select2.min.js"></script>
