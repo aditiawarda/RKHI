@@ -51,8 +51,8 @@ class Video extends CI_Controller
 
 	public function delete()
 	{
-		$data['video_kategori'] = $this->Video_model->show_kategori()->result();
-		$this->template->load('template/backend/dashboard', 'video/upload', $data);
+		$data['video_kategori'] = $this->Video_model->show_content()->result();
+		$this->template->load('template/backend/dashboard', 'video/delete', $data);
 	}
     
 }

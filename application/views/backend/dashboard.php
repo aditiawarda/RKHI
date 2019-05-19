@@ -1,7 +1,6 @@
-		<?php if ($this->ion_auth->is_admin()) { ?>
 		    <div class="row">
-		    	
-				<div class="col-sm-3">
+		    	<div class="col-sm-3">
+
 		    		<div class="tile-stats tile-red">
 		    			<div class="icon"><i class="entypo-users"></i></div>
 		    			<div class="num" data-start="0" data-end=" <?php echo count($jumlah_users); ?> " data-postfix="" data-duration="1500" data-delay="0">0</div>
@@ -10,9 +9,7 @@
 		    			<p> yang ada pada Website.</p>
 		    		</div>
 
-		    	</div>	
-		 
-		    		
+		    	</div>
 
 		    	<div class="col-sm-3">
 
@@ -50,8 +47,6 @@
 
 		    	</div>
 		    </div>
-
-		       <?php } ?>
 		    <br />
 
 		    <div class="row">
