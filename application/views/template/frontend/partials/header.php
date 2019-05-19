@@ -20,6 +20,11 @@ $aktif = $this->uri->segment(2);
 	<link href="<?php echo base_url(); ?>frontend/web/css/imagelightbox.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>frontend/web/css/style.css" rel="stylesheet" media="all" />
 	<!-- /css files -->
+	<style>
+		html{
+			scroll-behavior: smooth;
+		}
+	</style>
 
 	<script src="<?php echo base_url() ?>frontend/web/js/jquery-1.11.1.min.js"></script>
 	<script src="<?php echo base_url() ?>frontend/web/js/bootstrap.js"></script>
