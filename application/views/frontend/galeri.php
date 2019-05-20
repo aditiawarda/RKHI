@@ -14,68 +14,81 @@
 			</ul>
 		</div>
 	</div>
-	<div id="hukumkeluarga">
-		<ul class="w3l-grid" style="margin-top: 30px">
-			<h3 style="padding-left: 40%">HUKUM KELUARGA</h3>
-			<?php for ($i=0; $i <8 ; $i++): ?>
-			<li class="col-xs-3"><div class="embed-responsive embed-responsive-16by9">
-				<iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
-			</div></li>
-			<?php endfor;?>
-			
+		<div id="hukumkeluarga">
+		<ul class="w3l-grid" style="margin-top: 30px; padding-bottom: 400px">
+			<h3 class="agileits-title" style="font-size: 20pt">HUKUM KELUARGA</h3>
+				<?php foreach($video_content as $i):?>
+			<li class="col-xs-3">
+				<div class="embed-responsive embed-responsive-16by9">
+					<video controls="true">
+						<source src="<?= base_url('./uploads/'.$i->judul);?>.mp4" type="video/mp4" />
+					</video>
+				</div>
+			</li>
+				<?php endforeach;?>
 		</ul>
 	</div>
 
 
 	<div id="keuangansyariah">
-		<ul class="w3l-grid" style="margin-top: 30px">
-			<h3 style="padding-left: 40%">KEUANGAN SYARIAH</h3>
-			<?php for ($i=0; $i <8 ; $i++): ?>
-			<li class="col-xs-3"><div class="embed-responsive embed-responsive-16by9">
-				<iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
-			</div></li>
-			<?php endfor;?>
-			
+		<ul class="w3l-grid" style="margin-top: 30px; padding-bottom: 400px">
+			<h3 class="agileits-title" style="font-size: 20pt">KEUANGAN SYARIAH</h3>
+				<?php foreach($video_content as $i):?>
+			<li class="col-xs-3">
+				<div class="embed-responsive embed-responsive-16by9">
+					<video controls="true">
+						<source src="<?= base_url('./uploads/'.$i->judul);?>.mp4" type="video/mp4" />
+					</video>
+				</div>
+			</li>
+				<?php endforeach;?>
 		</ul>
 	</div>
 
 	<div id="pidanaislami">
-		<ul class="w3l-grid" style="margin-top: 30px">
-			<h3 style="padding-left: 43%">PIDANA ISLAMI</h3>
-			<?php for ($i=0; $i <8 ; $i++): ?>
-			<li class="col-xs-3"><div class="embed-responsive embed-responsive-16by9">
-				<iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
-			</div></li>
-			<?php endfor;?>
-			
+		<ul class="w3l-grid" style="margin-top: 30px; padding-bottom: 400px">
+			<h3 class="agileits-title" style="font-size: 20pt">PIDANA ISLAMI</h3>
+				<?php foreach($video_content as $i):?>
+			<li class="col-xs-3">
+				<div class="embed-responsive embed-responsive-16by9">
+					<video controls="true">
+						<source src="<?= base_url('./uploads/'.$i->judul);?>.mp4" type="video/mp4" />
+					</video>
+				</div>
+			</li>
+				<?php endforeach;?>
 		</ul>
 	</div>
 
 	<div id="fiqihibadah">
-		<ul class="w3l-grid" style="margin-top: 30px">
-			<h3 style="padding-left: 43%">FIQIH IBADAH</h3>
-			<?php for ($i=0; $i <8 ; $i++): ?>
-			<li class="col-xs-3"><div class="embed-responsive embed-responsive-16by9">
-				<iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
-			</div></li>
-			<?php endfor;?>
-			
+		<ul class="w3l-grid" style="margin-top: 30px; padding-bottom: 400px">
+			<h3 class="agileits-title" style="font-size: 20pt">FIQIH IBADAH</h3>
+				<?php foreach($video_content as $i):?>
+			<li class="col-xs-3">
+				<div class="embed-responsive embed-responsive-16by9">
+					<video controls="true">
+						<source src="<?= base_url('./uploads/'.$i->judul);?>.mp4" type="video/mp4" />
+					</video>
+				</div>
+			</li>
+				<?php endforeach;?>
 		</ul>
 	</div>
 
 	<div id="alquranhadist">
 		<ul class="w3l-grid" style="margin-top: 30px">
-			<h3 style="padding-left: 40%">AL QUR'AN DAN HADIST</h3>
-			<?php for ($i=0; $i <8 ; $i++): ?>
-			<li class="col-xs-3"><div class="embed-responsive embed-responsive-16by9">
-				<iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
-			</div></li>
-			<?php endfor;?>
-			
+			<h3 class="agileits-title" style="font-size: 20pt">AL QUR'AN DAN HADIST</h3>
+				<?php foreach($video_content as $i):?>
+			<li class="col-xs-3">
+				<div class="embed-responsive embed-responsive-16by9">
+					<video controls="true">
+						<source src="<?= base_url('./uploads/'.$i->judul);?>.mp4" type="video/mp4" />
+					</video>
+				</div>
+			</li>
+				<?php endforeach;?>
 		</ul>
 	</div>
-
-
 	<div class="clearfix"></div>
 </div>
 <!-- //gallery -->

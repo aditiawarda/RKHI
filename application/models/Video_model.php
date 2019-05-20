@@ -16,4 +16,20 @@ class Video_model extends CI_Model{
       	$this->db->insert($table,$data);
       }
 
+      public function show_video(){
+            return $this->db->get('video_content');
+      }
+
+      public function getVideoName($id)
+      {     
+            $this->db->where('id', $id);
+            $query = $this->db->get('video_content');
+            return $query;
+      }
+
+      public function delete($id)
+      {
+            return $this->db->delete('video_content', ['id' => $id]);
+      }
+
 }
