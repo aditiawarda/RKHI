@@ -10,7 +10,7 @@ class Data_Master extends CI_Controller
 		$this->md_konten = $this->DataMaster_Konten;
                 $this->load->helper('url');
 	}
-	//
+	//ini index
 	function index(){
 		$data['list_konten'] = $this->DataMaster_Konten->list_all()->result();
 		$this->load->view('templates/header', $data);
