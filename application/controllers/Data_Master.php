@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -9,7 +10,7 @@ class Data_Master extends CI_Controller
 		$this->md_konten = $this->DataMaster_Konten;
                 $this->load->helper('url');
 	}
- 
+	//
 	function index(){
 		$data['list_konten'] = $this->DataMaster_Konten->list_all()->result();
 		$this->load->view('templates/header', $data);
