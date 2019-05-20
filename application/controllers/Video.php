@@ -28,15 +28,18 @@ class Video extends CI_Controller
 	{
 		$judul = $this->input->post('judul');
 		$kategori = $this->input->post('kategori');
+		$nmfile = $judul;
 
         $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'mkv|mp4';
+        $config['allowed_types'] = 'mp4';
+        $config['file_name'] = $nmfile;
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('video')) {
             $error = $this->upload->display_errors();
             print_r($error);
         } else {
+
             $result = $this->upload->data();
             print_r($result);
         	
