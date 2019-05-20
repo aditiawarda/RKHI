@@ -48,6 +48,11 @@
 			</ul>
 		</li>
 		<li <?php if ($page == "pesan" || $page == "Pesan") echo 'class="active opened active" '; ?>><?= anchor('pesan', '<i class=entypo-mail></i><span>Pesan</span>'); ?></li>
+		
+		<!-- Pengaturan -->
+		
+<?php if ($this->ion_auth->is_admin()) { ?>
+
 		<li <?php if ($page == "Auth" || $page == "auth") echo 'class="active opened active multiple-expanded" '; ?>>
 			<a href="ui-panels.html">
 				<i class="entypo-tools"></i>
@@ -57,6 +62,10 @@
 				<li <?php if ($page == "Auth" || $page == "auth") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('admin/Auth', '<span class=entypo-user> Users</span>'); ?></li>
 			</ul>
 		</li>
+<?php } ?>
+
+		<?php
+		if ($this->ion_auth->is_admin()) { ?>
 		
 		<!-- Video Content -->
 		<li <?php if ($pag == "Masukkan" || $pag == "masukkan" || $page == "Hapus" || $page == "hapus") echo 'class="active opened active multiple-expanded" '; ?>>
@@ -75,6 +84,8 @@
 		<li>
 			<a href="javascript:;" onclick="jQuery('#modal-1').modal('show');"><i class="entypo-help"></i><span>Tentang</span></a>
 		</li>
+
+	<?php } ?>
 	</ul>
 
 </div>
