@@ -52,7 +52,7 @@ class Data_Master extends CI_Controller
 			
 
 			default:
-				redirect(base_url());
+				redirect(base_url('data_master'));
 				break;
 		}
 
@@ -76,44 +76,15 @@ class Data_Master extends CI_Controller
 	}
 	public function addnew()
 	{
-
-		if (empty($this->uri->segment('3'))) {
-			redirect(base_url());
-		}
-
-		$name = 'konten';
-
-		switch ($name) {
-			
-			case 'konten':
-				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-					$judul_diskusi = $this->security->xss_clean($this->input->post('judul_diskusi'));
-					$isi_diskusi = $this->security->xss_clean($this->input->post('isi_diskusi'));
-
-					// validasi
-					$this->form_validation->set_rules('judul_diskusi', 'Judul Diskusi');
-					$this->form_validation->set_rules('isi_diskusi', 'Isi Diskusi');
-					if (!$this->form_validation->run()) {
-						$this->session->set_flashdata('msg_alert', 'Gagal membuat data instansi baru');
-						redirect(base_url('data_master/addnew/' . $name));
-					}
-					// to-do
-					$this->md_konten->add_new($judul_diskusi, $isi_diskusi);
-					redirect(base_url('data_master/indexdiskusi'));
-				}
-				break;
-
-			default:
-				redirect(base_url());
-				break;
-		}
-
-		$data['name'] = $name;
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/sidebar', $data);
-		$this->load->view('templates/topbar', $data);
-		$this->load->view('forum2/p_diskusi', $data);
-		$this->load->view('templates/footer', $data);
+		$judul_diskusi = $this->input->post('judul_diskusi');
+		$isi_diskusi = $this->input->post('isi_diskusi');
+ 
+		$data = array(
+			'judul_diskusi' => $judul_diskusi,
+			'isi_diskusi' => $isi_diskusi
+			);
+		$this->DataMaster_Konten->input_data($data,'konten_diskusi')->result();
+		redirect('data_master/index');
 
 }
 	function indexdiskusi(){
