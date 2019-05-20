@@ -27,6 +27,11 @@ class Video_model extends CI_Model{
             return $query;
       }
 
+      public function getName()
+      {
+            return $this->db->get('video_content');
+      }
+
       public function delete($id)
       {
             return $this->db->delete('video_content', ['id' => $id]);
