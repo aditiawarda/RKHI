@@ -24,6 +24,20 @@ class Video extends CI_Controller
 		$this->template->load('template/backend/dashboard', 'video/upload', $data);
 	}
 
+	public function error()
+	{
+		$this->session->set_flashdata('failed1', 'Maaf format yang anda masukkan tidak valid atau judul sudah digunakan');
+		$data['video_kategori'] = $this->Video_model->show_kategori()->result();
+		$this->template->load('template/backend/dashboard', 'video/error', $data);
+	}
+
+	public function success()
+	{
+		$this->session->set_flashdata('success1', 'Video berhasil ditambahkan');
+		$data['video_kategori'] = $this->Video_model->show_kategori()->result();
+		$this->template->load('template/backend/dashboard', 'video/success', $data);
+	}
+
 	public function insert()
 	{
 		$judul = $this->input->post('judul');
@@ -31,25 +45,32 @@ class Video extends CI_Controller
 		$nmfile = $judul;
 
         $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'mp4';
+        $config['allowed_types'] = 'mp4|mkv|';
         $config['file_name'] = $nmfile;
+        
+        $setName = $this->Video_model->getName();
+        if($setName->num_rows() > 0){
+			$getName = $setName->row_array();
+			redirect('Video/error');
+		}
+
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('video')) {
             $error = $this->upload->display_errors();
-            print_r($error);
+            /*print_r($error);*/
+            redirect('Video/error');
         } else {
-
             $result = $this->upload->data();
             print_r($result);
         	
         	$data = array(
-				'judul' => $judul,
+				'judul' => $nmfile,
 				'kategori' => $kategori,
 				'file_type' => $result['file_ext']
 			);
 			$this->Video_model->input_data($data,'video_content');
-			redirect('admin/Dashboard');
+			redirect('Video/success');
         }
 	}
 
