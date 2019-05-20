@@ -76,17 +76,26 @@ class Data_Master extends CI_Controller
 	}
 	public function addnew()
 	{
-		$judul_diskusi = $this->input->post('judul_diskusi');
-		$isi_diskusi = $this->input->post('isi_diskusi');
+		$judul_konten = $this->input->post('judul_konten');
+		$isi_konten = $this->input->post('isi_konten');
  
 		$data = array(
-			'judul_diskusi' => $judul_diskusi,
-			'isi_diskusi' => $isi_diskusi
+			'judul_konten' => $judul_konten,
+			'isi_konten' => $isi_konten
 			);
-		$this->DataMaster_Konten->input_data($data,'konten_diskusi')->result();
+		$this->DataMaster_Konten->input_data($data,'konten_diskusi');
 		redirect('data_master/index');
 
-}
+	}
+
+	public function isidiskusi(){
+		$this->load->view('templates/header');
+		$this->load->view('templates/sidebar');
+		$this->load->view('templates/topbar');
+		$this->load->view('forum2/p_diskusi');
+		$this->load->view('templates/footer');
+	}
+
 	function indexdiskusi(){
 		$data['list_konten'] = $this->DataMaster_Konten->list_all()->result();
 		$this->load->view('templates/header', $data);
