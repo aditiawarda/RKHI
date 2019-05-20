@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(''); ?>">
+        <a class="nav-link" href="<?= base_url('data_master'); ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Halaman Diskusi</span></a>
     </li>

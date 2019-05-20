@@ -53,7 +53,7 @@ $aktif = $this->uri->segment(2);
 
 						<!-- Tampilan login session saat user sudah melakukan login tampilkan dashboard di navbar -->
 							<?php if ($this->session->userdata('identity')) { ?> 
-								<li <?php if ($aktif == "login") echo 'class="active"'; ?>><a href="<?php echo base_url() ?>Frontend/forumdiskusi"><span data-hover="ForumDiskusi">Forum Diskusi</span></a><span class="line1">|</span></li>
+								<li <?php if ($aktif == "login") echo 'class="active"'; ?>><a href="<?php echo base_url('data_master') ?>"><span data-hover="ForumDiskusi">Forum Diskusi</span></a><span class="line1">|</span></li>
 								<li <?php if ($aktif == "login") echo 'class="active"'; ?>><a href="<?php echo base_url() ?>Auth/login"><span data-hover="Dashboard">Dashboard</span></a><span class="line1">|</span></li>
 							 <?php }
 
