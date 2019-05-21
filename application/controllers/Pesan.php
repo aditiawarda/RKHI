@@ -39,15 +39,15 @@ class Pesan extends CI_Controller
         $from = 'melektechnology@gmail.com';              // Pass here your mail id
 
         // ini gambar atas
-        // $emailContent = '<!DOCTYPE><html><head></head><body><table width="600px" style="border:1px solid #cccccc;margin: auto;border-spacing:0;"><tr><td style="background:#000000;padding-left:3%"><img src="http://codingmantra.co.in/assets/logo/logo.png" width="300px" vspace=10 /></td></tr>';
-        // $emailContent .='<tr><td style="height:20px"></td></tr>';
+        $emailContent = '<!DOCTYPE><html><head></head><body><table width="600px" style="border:1px solid #cccccc;margin: auto;border-spacing:0;"><tr><td style="background:#000000;padding-left:3%"><img src="header-email.jpg" width="300px" vspace=10 /></td></tr>';
+        $emailContent .='<tr><td style="height:20px"></td></tr>';
 
 
         $emailContent .= $this->input->post('message');  //   Post message available here
 
         // ini footer
-        // $emailContent .='<tr><td style="height:20px"></td></tr>';
-        // $emailContent .= "<tr><td style='background:#000000;color: #999999;padding: 2%;text-align: center;font-size: 13px;'><p style='margin-top:1px;'><a href='http://codingmantra.co.in/' target='_blank' style='text-decoration:none;color: #60d2ff;'>www.codingmantra.co.in</a></p></td></tr></table></body></html>";
+        $emailContent .='<tr><td style="height:20px"></td></tr>';
+        $emailContent .= "<tr><td style='background:#000000;color: #999999;padding: 2%;text-align: center;font-size: 13px;'><p style='margin-top:1px;'><a href='http://uinsgd.ac.id/' target='_blank' style='text-decoration:none;color: #60d2ff;'>www.uinsgd.ac.id</a></p></td></tr></table></body></html>";
                     
 
         $config = Array(
