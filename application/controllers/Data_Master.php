@@ -132,7 +132,7 @@ class Data_Master extends CI_Controller
 		$this->load->view('templates/topbar');
 		$this->load->view('forum2/p_diskusi');
 		$this->load->view('templates/footer');
-
+	}
 	function indexdiskusi(){
 		$data['list_konten'] = $this->DataMaster_Konten->list_all()->result();
 		$this->load->view('templates/header', $data);
