@@ -1,5 +1,5 @@
 <div class="jumbroton">
-	<h1 style="text-decoration: underline;">Delete Video</h1><br>
+	<h1 style="text-decoration: underline;">Delete Resource</h1><br>
 </div>
 
 <div class="table-responsive">

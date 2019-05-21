@@ -111,7 +111,7 @@ class Book extends CI_Controller {
 		$setName = $this->Book_model->getBookName($id);
 		if($setName->num_rows() > 0){
 			$getName = $setName->row_array();
-			$getVideoName = './uploads/books'.$getName['judul'].$getName['file_type'];
+			$getBookName = './uploads/books'.$getName['judul'].$getName['file_type'];
 			$deleteFileContent = unlink($getBookName);
 			if($delete){
 				$this->session->set_flashdata('failed', 'Resource Gagal Dihapus');
