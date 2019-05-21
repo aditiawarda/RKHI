@@ -17,6 +17,7 @@ class DataMaster_Konten extends CI_Model {
 	function edit_data($where,$table){		
 		return $this->db->get_where($table,$where);
 	}
+
 	public function get_data($id) {
 		$q=$this->db->select('*')->from('konten_diskusi')->where('id_konten', $id)->limit(1)->get();
 		if( $q->num_rows() < 1 ) {

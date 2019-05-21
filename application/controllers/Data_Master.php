@@ -125,13 +125,13 @@ class Data_Master extends CI_Controller
 
 	}
 
+
 	public function isidiskusi(){
 		$this->load->view('templates/header');
 		$this->load->view('templates/sidebar');
 		$this->load->view('templates/topbar');
 		$this->load->view('forum2/p_diskusi');
 		$this->load->view('templates/footer');
-	}
 
 	function indexdiskusi(){
 		$data['list_konten'] = $this->DataMaster_Konten->list_all()->result();
@@ -166,6 +166,12 @@ class Data_Master extends CI_Controller
 				redirect(base_url());
 				break;
 		}
+	}
+
+	function hapus($id){
+		$where = array('id' => $id);
+		$this->m_data->hapus_data($where,'user');
+		redirect('crud/index');
 	}
 }
 
