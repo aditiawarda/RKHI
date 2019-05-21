@@ -36,15 +36,7 @@ class Data_Master extends CI_Controller
 		switch ($name) {
 			
 			case 'konten':
-				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-					$id_konten = $this->security->xss_clean($this->input->post('id_konten'));
-					$judul_konten = $this->security->xss_clean($this->input->post('judul_konten'));
-					$isi_konten = $this->security->xss_clean($this->input->post('isi_konten'));
-					// validasi
-					$this->form_validation->set_rules('id_konten', 'ID Instansi', 'required');
-					$this->form_validation->set_rules('judul_konten', 'Judul Konten');
-					$this->form_validation->set_rules('isi_konten', 'Isi Konten');
-				}
+				
 				$data['id_konten'] = $this->md_konten->get_data($id)->id_konten;
 				$data['judul_konten'] = $this->md_konten->get_data($id)->judul_konten;
 				$data['isi_konten'] = $this->md_konten->get_data($id)->isi_konten;
@@ -86,6 +78,22 @@ class Data_Master extends CI_Controller
 			);
 		$this->DataMaster_Konten->input_data($data,'konten_diskusi');
 		redirect('data_master/index');
+
+	}
+
+	public function chat()
+	{
+		$name = $this->uri->segment('3');
+
+		$id_konten = $this->input->post('id_konten');
+		$isi = $this->input->post('isi');
+ 
+		$data = array(
+			'id_konten' => $name,
+			'isi' => $isi
+			);
+		$this->DataMaster_Konten->input_data($data,'chat');
+		redirect('data_master/lihat/konten/'.$name);
 
 	}
 
