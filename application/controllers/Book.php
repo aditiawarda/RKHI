@@ -16,8 +16,7 @@ class Book extends CI_Controller {
     }
 
     public function index() {
-    	$data['video_kategori'] = $this->Book_model->show_kategori()->result();
-		$this->template->load('template/backend/dashboard', 'book/upload', $data);
+    	
 	}
 
 	public function insert() {
@@ -25,45 +24,55 @@ class Book extends CI_Controller {
 		$kategori = $this->input->post('kategori');
 		$nmfile = $judul;
 
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'pdf';
-        $config['file_name'] = $nmfile;
+        $config['upload_path'] 		= './uploads/books';
+        $config['allowed_types'] 	= 'doc|docx|pdf';
+        $config['max_size']			= 0;
+        $config['file_name'] 		= $nmfile;
         
-        $setName = $this->Book_model->getName();
-        if($setName->num_rows() > 0){
-			$getName = $setName->row_array();
-			redirect('Book/error');
-		}
+  //       $setName = $this->Book_model->getName();
+  //       if($setName->num_rows() > 0){
+		// 	$getName = $setName->row_array();
+		// 	redirect('Book/error');
+		// }
 
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('book')) {
             $error = $this->upload->display_errors();
+			//            $error = array('error' =>$this->upload->display_errors());
             /*print_r($error);*/
             redirect('Book/error');
         } else {
             $result = $this->upload->data();
-            print_r($result);
+            //print_r($result);
         	
         	$data = array(
 				'judul' => $nmfile,
 				'kategori' => $kategori,
-				'file_type' => $result['file_ext']
+				'file_type' => $result['file_name']
 			);
 			$this->Book_model->input_data($data,'book_resource');
 			redirect('Book/success');
         }
 	}
 
-		public function error(){
-			$this->session->set_flashdata('failed1', 'Maaf format yang anda masukkan tidak valid atau judul sudah digunakan');
-			$data['video_kategori'] = $this->Book_model->show_kategori()->result();
-			$this->template->load('template/backend/dashboard', 'book/error', $data);
+	// Tampilkan Pesan Error
+	public function error(){
+		$this->session->set_flashdata('failed1', 'Maaf format yang anda masukkan tidak valid atau judul sudah digunakan');
+		$data['video_kategori'] = $this->Book_model->show_kategori()->result();
+		$this->template->load('template/backend/dashboard', 'book/error', $data);
 	}
 
+	// Tampilkan Pesan Sukses
 	public function success(){
-		$this->session->set_flashdata('success1', 'Video berhasil ditambahkan');
+		$this->session->set_flashdata('success1', 'Dokument berhasil ditambahkan');
 		$data['video_kategori'] = $this->Book_model->show_kategori()->result();
 		$this->template->load('template/backend/dashboard', 'book/success', $data);
+	}
+
+	// Function insert buku
+	public function masukan() {
+		$data['video_kategori'] = $this->Book_model->show_kategori()->result();
+		$this->template->load('template/backend/dashboard', 'book/upload', $data, array('error' =>' '));
 	}
 }

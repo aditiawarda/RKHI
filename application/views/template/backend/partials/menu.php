@@ -65,14 +65,32 @@
 			</ul>
 		</li>
 
+		<?php } ?>
 
 		<!-- Book Resource -->
+		<?php
+		if ($this->ion_auth->is_admin()) { ?>
 
-		<li <?php if ($pag == "book" || $pag == "Book") echo 'class="active opened active" '; ?>><?= anchor('Book/index', '<i class=entypo-doc-text></i><span>Buku</span>'); ?></li> <?php } ?>
+		<li <?php if ($pag == "Resource" || $pag == "resource" || $pag == "Masukkan" || $pag == "masukkan" || $page == "Hapus" || $page == "hapus") echo 'class="active opened active multiple-expanded" '; ?>>
+			<a href="ui-panels.html">
+				<i class="fas fa-book"></i>
+				<span>Buku Resource</span>
+			</a>
+			<ul>
+				<li <?php if ($page == "Resource" || $page == "resource") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Book', '<i class="fas fa-book"></i><span> Tambah Resource Buku</span>'); ?></li>
+
+				<li <?php if ($page == "Masukkan" || $page == "masukkan") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Book/masukan', '<i class="fas fa-plus"></i><span> Tambah Resource Buku</span>'); ?></li>
+
+				<li <?php if ($page == "Hapus" || $page == "hapus") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Book/delete', '<i class="fas fa-minus-circle"></i><span> Hapus Buku</span>'); ?></li>
+			</ul>
+		</li>
+		<!-- END Book Resource -->
+		<?php } ?>
+
+<!-- Video Content -->
 		<?php
 		if ($this->ion_auth->is_admin()) { ?>
 		
-		<!-- Video Content -->
 		<li <?php if ($pag == "Masukkan" || $pag == "masukkan" || $page == "Hapus" || $page == "hapus") echo 'class="active opened active multiple-expanded" '; ?>>
 			<a href="ui-panels.html">
 				<i class="fas fa-file-video"></i>
