@@ -92,7 +92,7 @@
                         <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="<?php echo base_url() ?>"><span data-hover="Beranda">Beranda</span></a></li>
-                            <li><a href="<?php echo base_url() ?>Frontend/galeri"><span data-hover="Galeri">Galeri</span></a><span class="line1">|</span></li>
+                            <li><a href="<?php echo base_url() ?>Frontend/galeri"><span data-hover="Galeri">Galeri Video Content</span></a><span class="line1">|</span></li>
                             <li><a href="<?php echo base_url('data_master') ?>"><span data-hover="ForumDiskusi">Forum Diskusi</span></a><span class="line1">|</span></li>
                         </ul>
                     </div>

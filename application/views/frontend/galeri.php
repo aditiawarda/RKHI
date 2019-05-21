@@ -1,6 +1,6 @@
 <!-- gallery -->
 <div class="jarallax w3ls-gallery agile-section" id="gallery">
-	<h3 class="agileits-title" style="color: orange;">gallery</h3>
+	<h3 class="agileits-title" style="color: orange;">GALERI VIDEO CONTENT</h3>
 	<div class="container">
 		<div class="dropdown">
 			<button class="btn dropdown-toggle center" style="background-image: -webkit-linear-gradient(top, orange 0%, orange 100%); padding-right: 85%; color: white" type="button" data-toggle="dropdown">KATEGORI VIDEO
