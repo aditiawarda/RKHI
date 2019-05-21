@@ -31,7 +31,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="<?= base_url('data_master/indexdiskusi'); ?>">List Diskusi</a>
-                <a class="collapse-item" href="<?= base_url('data_master/addnew/konten'); ?>">Post Diskusi</a>
+                <a class="collapse-item" href="<?= base_url('data_master/isidiskusi'); ?>">Post Diskusi</a>
             </div>
         </div>
     </li>
