@@ -12,7 +12,7 @@ class Email extends CI_Controller
     {
  //       $this->template->load('template/frontend/home', 'frontend/galeri');
         //$this->load->view('template/frontend/home');
-        $this->template->load('template/backend/dashboard', 'pesan/pesan_list');
+        $this->template->load('template/frontend/home', 'frontend/home');
     }
     public function create() 
     {

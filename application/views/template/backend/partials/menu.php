@@ -49,7 +49,7 @@
 				<li <?php if ($page == "hasil" || $page == "Hasil") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Perbandingan/hasil', '<span class=entypo-chart-bar>Hasil Konsultasi</span>'); ?></li>
 			</ul>
 		</li>
-		<li <?php if ($page == "pesan" || $page == "Pesan") echo 'class="active opened active" '; ?>><?= anchor('email', '<i class=entypo-mail></i><span>Email</span>'); ?></li>
+		<li <?php if ($page == "pesan" || $page == "Pesan") echo 'class="active opened active" '; ?>><?= anchor('pesan', '<i class=entypo-mail></i><span>Pesan</span>'); ?></li>
 		
 		<!-- Pengaturan -->
 		

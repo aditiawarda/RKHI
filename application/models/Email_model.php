@@ -19,6 +19,10 @@ class Email_model extends CI_Model
         return $d;
     }
     // get all
+    public function read()
+    {
+        return $this->db->get('kirim_email');
+    }
     function get_all()
     {
         $this->db->order_by($this->id, $this->order);
