@@ -3,43 +3,50 @@
 	<div class="container">
 		<div class="w3-agileits-about-grids">
 			<div class="col-md-6 agile-about-left">
-				<h2><font color="white">Selamat Datang di Rumah Konsultasi Hukum Islam di Kampus UIN SGD Bandung</font></h2>
-	
+				<h2>
+					<font color="white">Selamat Datang di Rumah Konsultasi Hukum Islam di Kampus UIN SGD Bandung</font>
+				</h2>
+
 				<script language="JavaScript">
-					var text="<font color=white>Rumah Konsultasi Hukum Islam UIN SGD Bandung";
-					var delay=20;
-					var currentChar=1;
-					var destination="[none]";
+					var text = "<font color=white>Rumah Konsultasi Hukum Islam UIN SGD Bandung";
+					var delay = 20;
+					var currentChar = 1;
+					var destination = "[none]";
+
 					function type() {
 						{
-							var dest=document.getElementById(destination);
+							var dest = document.getElementById(destination);
 							if (dest) {
-								dest.innerHTML=text.substr(0, currentChar)+"<blink>_</blink></font>";
+								dest.innerHTML = text.substr(0, currentChar) + "<blink>_</blink></font>";
 								currentChar++;
-								if (currentChar>text.length) {
-									currentChar=1;
+								if (currentChar > text.length) {
+									currentChar = 1;
 									setTimeout("type()", 5000);
-								}
-								else{
+								} else {
 									setTimeout("type()", delay);
 								}
 							}
 						}
 					}
-					function startTyping(textParam, delayParam, destinationParam){
-						text=textParam;
-						delay=delayParam;
-						currentChar=1;
-						destination=destinationParam;
+
+					function startTyping(textParam, delayParam, destinationParam) {
+						text = textParam;
+						delay = delayParam;
+						currentChar = 1;
+						destination = destinationParam;
 						type();
 					}
-					</script> <h5><div 0px="" 9px="" arial="" color:="" ff0000="" font:="" id="textDestination" margin:="" style="background-color: none;"></div></h5> <script language="JavaScript">
-					javascript:startTyping(text, 50, "textDestination");
+				</script>
+				<h5>
+					<div 0px="" 9px="" arial="" color:="" ff0000="" font:="" id="textDestination" margin:="" style="background-color: none;"></div>
+				</h5>
+				<script language="JavaScript">
+					javascript: startTyping(text, 50, "textDestination");
 				</script>
 
 				<p>Rumah Konsultasi Hukum Islam adalah sebuah website layanan untuk mengembangkan hubungan kerja sama antara konselor dan klien.
-				<br>
-				<br>Website ini diharapkan dapat membantu kalangan masyarakat dalam menyelesaikan suatu masalah terutama dikaitkan dengan syariat islam dalam pemecahan masalahnya baik itu didelasaikan secara tidak langsung biasanya didasarkan pada karakteristik hubungan yang sama yang ditandai dengan saling mempercayai, bekerjasama dalam mengidentifikasi masalah.
+					<br>
+					<br>Website ini diharapkan dapat membantu kalangan masyarakat dalam menyelesaikan suatu masalah terutama dikaitkan dengan syariat islam dalam pemecahan masalahnya baik itu didelasaikan secara tidak langsung biasanya didasarkan pada karakteristik hubungan yang sama yang ditandai dengan saling mempercayai, bekerjasama dalam mengidentifikasi masalah.
 				</p>
 			</div>
 			<div class="col-md-6 agile-about-right"></div>
@@ -214,7 +221,9 @@
 <!-- contact -->
 <div class="jarallax agileits-contact agile-section" id="contact">
 	<div class="container">
-		<h3 class="agileits-title"><font color="white">Kontak Kami</font></h3>
+		<h3 class="agileits-title">
+			<font color="white">Kontak Kami</font>
+		</h3>
 		<div class="w3agile-contact">
 			<div class="col-md-5 col-sm-5 col-xs-6 w3_agileits-contact-left">
 				<div class="wthree-address">
@@ -243,14 +252,14 @@
 					</div>
 					<div class="col-md-10 col-sm-11 col-xs-11  w3_agile-contact-text">
 						<h5>email</h5>
-						<a href="mailto:rkhi_develop@gmail.com">rkhi_develop@gmail.com</a>
+						<a href="mailto:rkhideveloper2016@gmail.com">rkhideveloper2016@gmail.com</a>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="clearfix"></div>
 			</div>
 			<div class="col-md-7 col-sm-7 col-xs-6 contact-right-w3l">
-				<form action="<?php echo base_url(). 'email/create'; ?>" method="post">
+				<form action="<?php echo base_url() . 'email/create'; ?>" method="post">
 					<input type="text" class="name" name="nama_depan" placeholder="Nama Depan" required="">
 					<input type="text" class="name" name="nama_belakang" placeholder="Nama Belakang">
 					<input type="email" class="name" name="email" placeholder="Email" required="">
