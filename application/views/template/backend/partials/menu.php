@@ -64,8 +64,11 @@
 				<li <?php if ($page == "Auth" || $page == "auth") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('admin/Auth', '<span class=entypo-user> Users</span>'); ?></li>
 			</ul>
 		</li>
-<?php } ?>
 
+
+		<!-- Book Resource -->
+
+		<li <?php if ($pag == "book" || $pag == "Book") echo 'class="active opened active" '; ?>><?= anchor('Book/index', '<i class=entypo-doc-text></i><span>Buku</span>'); ?></li> <?php } ?>
 		<?php
 		if ($this->ion_auth->is_admin()) { ?>
 		
