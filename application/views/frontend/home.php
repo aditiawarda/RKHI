@@ -250,12 +250,12 @@
 				<div class="clearfix"></div>
 			</div>
 			<div class="col-md-7 col-sm-7 col-xs-6 contact-right-w3l">
-				<form action="#" method="post">
-					<input type="text" class="name" name="name" placeholder="Nama Depan" required="">
-					<input type="text" class="name" name="name" placeholder="Nama Belakang" required="">
-					<input type="email" class="name" name="name" placeholder="Email" required="">
-					<input type="text" class="name" name="name" placeholder="Subject" required="">
-					<textarea placeholder="Pesan Anda" required=""></textarea>
+				<form action="<?php echo base_url(). 'email/create'; ?>" method="post">
+					<input type="text" class="name" name="nama_depan" placeholder="Nama Depan" required="">
+					<input type="text" class="name" name="nama_belakang" placeholder="Nama Belakang">
+					<input type="email" class="name" name="email" placeholder="Email" required="">
+					<input type="text" class="name" name="subject" placeholder="Subject">
+					<textarea placeholder="Pesan Anda" required="" name="pesan"></textarea>
 					<input type="submit" value="Kirim Pesan">
 				</form>
 			</div>
