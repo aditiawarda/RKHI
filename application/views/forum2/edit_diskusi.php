@@ -18,7 +18,7 @@
                         <textarea class="form-control" placeholder="Isi Diskusi" name="isi_konten" id="exampleFormControlInput1" ><?php echo $d->isi_konten ?></textarea>
                     </div>
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-primary">Tambah baru</button>
+                        <button type="submit" class="btn btn-primary">Edit Diskusi</button>
 
                     </div>
                     </form>

@@ -8,9 +8,31 @@ class Data_Master extends CI_Controller
 		parent::__construct();		
 		$this->load->model('DataMaster_Konten');
 		$this->md_konten = $this->DataMaster_Konten;
-                $this->load->helper('url');
+		$this->load->model('Ion_auth_model', 'm');
+		$this->load->library(array('Ion_auth','form_validation'));
+		$this->load->helper(array('url','language'));
+		$this->getsecurity();
 	}
 	//ini index
+	function getsecurity($value=''){
+		$username = $this->session->userdata('identity');
+		if ($username == '') {
+			// $this->session->sess_destroy();
+			redirect('');
+		}
+
+	}
+	public function logout()
+	{
+		$this->data['title'] = "Logout";
+
+		// log the user out
+		$logout = $this->ion_auth->logout();
+
+		// redirect them to the login page
+		$this->session->set_flashdata('message', $this->ion_auth->messages());
+		redirect('admin/Auth/login', 'refresh');
+	}
 	function index(){
 		$data['list_konten'] = $this->DataMaster_Konten->list_all()->result();
 		$this->load->view('templates/header', $data);
