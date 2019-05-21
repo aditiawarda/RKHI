@@ -3,11 +3,44 @@
 	<div class="container">
 		<div class="w3-agileits-about-grids">
 			<div class="col-md-6 agile-about-left">
-				<h2><font color="white">Selamat Datang di Situs Resmi Rumah Konsultasi Hukum Islam</font></h2>
-				<h5>Situs Rumah Konsultasi Hukum Islam di Kampus UIN SGD Bandung</h5>
+				<h2><font color="white">Selamat Datang di Rumah Konsultasi Hukum Islam di Kampus UIN SGD Bandung</font></h2>
+	
+				<script language="JavaScript">
+					var text="<font color=white>Rumah Konsultasi Hukum Islam UIN SGD Bandung";
+					var delay=20;
+					var currentChar=1;
+					var destination="[none]";
+					function type() {
+						{
+							var dest=document.getElementById(destination);
+							if (dest) {
+								dest.innerHTML=text.substr(0, currentChar)+"<blink>_</blink></font>";
+								currentChar++;
+								if (currentChar>text.length) {
+									currentChar=1;
+									setTimeout("type()", 5000);
+								}
+								else{
+									setTimeout("type()", delay);
+								}
+							}
+						}
+					}
+					function startTyping(textParam, delayParam, destinationParam){
+						text=textParam;
+						delay=delayParam;
+						currentChar=1;
+						destination=destinationParam;
+						type();
+					}
+					</script> <h5><div 0px="" 9px="" arial="" color:="" ff0000="" font:="" id="textDestination" margin:="" style="background-color: none;"></div></h5> <script language="JavaScript">
+					javascript:startTyping(text, 50, "textDestination");
+				</script>
+
 				<p>Rumah Konsultasi Hukum Islam adalah sebuah website layanan untuk mengembangkan hubungan kerja sama antara konselor dan klien.
-					<span>Website ini diharapkan dapat membantu kalangan masyarakat dalam menyelesaikan suatu masalah terutama dikaitkan dengan syariat islam dalam pemecahan masalahnya baik itu didelasaikan secara tidak langsung biasanya didasarkan pada karakteristik hubungan yang sama yang ditandai dengan saling mempercayai, bekerja sama dalam mengidentifikasikan masalah.
-						<br></p>
+				<br>
+				<br>Website ini diharapkan dapat membantu kalangan masyarakat dalam menyelesaikan suatu masalah terutama dikaitkan dengan syariat islam dalam pemecahan masalahnya baik itu didelasaikan secara tidak langsung biasanya didasarkan pada karakteristik hubungan yang sama yang ditandai dengan saling mempercayai, bekerjasama dalam mengidentifikasi masalah.
+				</p>
 			</div>
 			<div class="col-md-6 agile-about-right"></div>
 			<div class="clearfix"> </div>
