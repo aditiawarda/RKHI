@@ -98,4 +98,30 @@ class Book extends CI_Controller {
             force_download($file, NULL);
         }
     }
+
+    public function delete()
+	{
+		$data['video_kategori'] = $this->Book_model->show_content()->result();
+		$this->template->load('template/backend/dashboard', 'book/delete', $data);
+	}
+
+	public function actionDelete()
+	{
+		$id = $this->uri->segment(3);
+		$setName = $this->Book_model->getBookName($id);
+		if($setName->num_rows() > 0){
+			$getName = $setName->row_array();
+			$getVideoName = './uploads/books'.$getName['judul'].$getName['file_type'];
+			$deleteFileContent = unlink($getBookName);
+			if($delete){
+				$this->session->set_flashdata('failed', 'Resource Gagal Dihapus');
+			}else{
+				$delete = $this->Book_model->delete($id);
+				$this->session->set_flashdata('success', 'Resource Berhasil Dihapus');
+			}
+		}else{
+			$this->session->set_flashdata('failed', 'Resource Gagal Dihapus');
+		}
+		redirect('book/delete');
+	}
 }
