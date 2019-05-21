@@ -48,4 +48,7 @@ class Email_model extends CI_Model
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
     }
+    function edit($where,$table){		
+        return $this->db->get_where($table,$where);
+    }
 }
