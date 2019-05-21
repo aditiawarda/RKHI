@@ -16,7 +16,13 @@ class Book extends CI_Controller {
     }
 
     public function index() {
-    	
+    	$data = array();
+        
+        //get files from database
+        $data['book_resource'] = $this->Book_model->getRows();
+        
+        //load the view
+        $this->template->load('template/backend/dashboard', 'book/index', $data);
 	}
 
 	public function insert() {
@@ -25,7 +31,7 @@ class Book extends CI_Controller {
 		$nmfile = $judul;
 
         $config['upload_path'] 		= './uploads/books';
-        $config['allowed_types'] 	= 'doc|docx|pdf';
+        $config['allowed_types'] 	= 'pdf';
         $config['max_size']			= 0;
         $config['file_name'] 		= $nmfile;
         
@@ -75,4 +81,21 @@ class Book extends CI_Controller {
 		$data['video_kategori'] = $this->Book_model->show_kategori()->result();
 		$this->template->load('template/backend/dashboard', 'book/upload', $data, array('error' =>' '));
 	}
+
+	// Function Download
+	public function download($id){
+        if(!empty($id)){
+            //load download helper
+            $this->load->helper('download');
+            
+            //get file info from database
+            $fileInfo = $this->Book_model->getRows(array('id' => $id));
+            
+            //file path
+            $file = 'uploads/books/'.$fileInfo['file_type'];
+            
+            //download file from directory
+            force_download($file, NULL);
+        }
+    }
 }

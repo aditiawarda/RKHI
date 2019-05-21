@@ -77,7 +77,7 @@
 				<span>Buku Resource</span>
 			</a>
 			<ul>
-				<li <?php if ($page == "Resource" || $page == "resource") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Book', '<i class="fas fa-book"></i><span> Tambah Resource Buku</span>'); ?></li>
+				<li <?php if ($page == "Resource" || $page == "resource") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Book', '<i class="fas fa-book"></i><span>Resource Buku</span>'); ?></li>
 
 				<li <?php if ($page == "Masukkan" || $page == "masukkan") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Book/masukan', '<i class="fas fa-plus"></i><span> Tambah Resource Buku</span>'); ?></li>
 
