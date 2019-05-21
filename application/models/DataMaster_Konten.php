@@ -45,6 +45,11 @@ class DataMaster_Konten extends CI_Model {
 		}
 		$this->db->delete('konten_diskusi', array('id_konten' => $id));
 	}
+
+	function update_datass($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}
 	
 }
 
