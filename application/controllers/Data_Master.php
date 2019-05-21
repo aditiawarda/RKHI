@@ -131,17 +131,9 @@ class Data_Master extends CI_Controller
 		}
 	}
 
-	function tambah_aksi(){
-		$nama = $this->input->post('nama');
-		$alamat = $this->input->post('alamat');
-		$pekerjaan = $this->input->post('pekerjaan');
- 
-		$data = array(
-			'nama' => $nama,
-			'alamat' => $alamat,
-			'pekerjaan' => $pekerjaan
-			);
-		$this->m_data->input_data($data,'user');
+	function hapus($id){
+		$where = array('id' => $id);
+		$this->m_data->hapus_data($where,'user');
 		redirect('crud/index');
 	}
 }
