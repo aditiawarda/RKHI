@@ -35,7 +35,9 @@
 				<li <?php if ($pag == "Subkriteria" || $pag == "subkriteria") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Subkriteria', '<span class=entypo-menu> Subkriteria</span>'); ?></li>
 			</ul>
 		</li>
+
 		<li <?php if ($pag == "client" || $pag == "Client") echo 'class="active opened active" '; ?>><?= anchor('Client', '<i class=entypo-doc-text></i><span>Client</span>'); ?></li>
+		
 		<li <?php if ($pag == "Alternatif" || $pag == "alternatif" || $page == "Banding" || $page == "banding" || $page == "Hasil" || $page == "hasil") echo 'class="active opened active multiple-expanded" '; ?>>
 			<a href="ui-panels.html">
 				<i class="entypo-book"></i>
@@ -47,7 +49,7 @@
 				<li <?php if ($page == "hasil" || $page == "Hasil") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Perbandingan/hasil', '<span class=entypo-chart-bar>Hasil Konsultasi</span>'); ?></li>
 			</ul>
 		</li>
-		<li <?php if ($page == "pesan" || $page == "Pesan") echo 'class="active opened active" '; ?>><?= anchor('pesan', '<i class=entypo-mail></i><span>Pesan</span>'); ?></li>
+		<li <?php if ($page == "pesan" || $page == "Pesan") echo 'class="active opened active" '; ?>><?= anchor('email', '<i class=entypo-mail></i><span>Email</span>'); ?></li>
 		
 		<!-- Pengaturan -->
 		

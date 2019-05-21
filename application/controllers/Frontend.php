@@ -45,21 +45,6 @@ class Frontend extends CI_Controller
     //     $this->template->load('template/frontend/home', 'frontend/home', $data);
     // }
 
-    public function create() 
-    {
-
-            $data = array(
-                'nama_depan' => $this->input->post('nama_depan',TRUE),
-                'nama_belakang' => $this->input->post('nama_belakang',TRUE),
-                'email' => $this->input->post('email',TRUE),
-                'subject' => $this->input->post('subject',TRUE),
-                'pesan' => $this->input->post('pesan',TRUE),
-	    );
-
-            $this->Email_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
-           
-        
-    }
+    
 
 }

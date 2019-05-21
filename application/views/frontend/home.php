@@ -217,7 +217,7 @@
 				<div class="clearfix"></div>
 			</div>
 			<div class="col-md-7 col-sm-7 col-xs-6 contact-right-w3l">
-				<form action="<?php base_url('frontend/create') ?>" method="post">
+				<form action="<?php echo base_url(). 'email/create'; ?>" method="post">
 					<input type="text" class="name" name="nama_depan" placeholder="Nama Depan" required="">
 					<input type="text" class="name" name="nama_belakang" placeholder="Nama Belakang">
 					<input type="email" class="name" name="email" placeholder="Email" required="">
