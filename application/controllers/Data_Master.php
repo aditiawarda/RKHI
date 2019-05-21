@@ -91,10 +91,12 @@ class Data_Master extends CI_Controller
 	}
 	public function addnew()
 	{
+		$judul_konten = $this->input->post('id_user');
 		$judul_konten = $this->input->post('judul_konten');
 		$isi_konten = $this->input->post('isi_konten');
  
 		$data = array(
+			'id_user' => $username,
 			'judul_konten' => $judul_konten,
 			'isi_konten' => $isi_konten
 			);
