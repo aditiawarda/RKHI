@@ -90,13 +90,13 @@
                         <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="<?php echo base_url() ?>"><span data-hover="ForumDiskusi"></span></a></li>
-                            <li><a href="<?php echo base_url() ?>"><span data-hover="Beranda">Beranda</span></a><span class="line1">|</span></li>
-                            <li><a href="<?php echo base_url() ?>Frontend/galeri"><span data-hover="Galeri">Galeri Video Content</span></a></li>
+                            <li style="margin-right: 10px"><a href="<?php echo base_url() ?>"><span data-hover="Beranda"><button type="button" class="btn btn-primary">Beranda</button></span></a><span class="line1"></span></li>
+                            <li><a href="<?php echo base_url() ?>Frontend/galeri"><span data-hover="Galeri"><button type="button" class="btn btn-primary">Galeri Video</button></span></a></li>
                             
                         </ul>
 
                     </div>
-                        <span class="badge badge-danger badge-counter">7</span>
+                        <span>.</span>
                     </a>
                     <!-- Dropdown - Messages -->
                     
