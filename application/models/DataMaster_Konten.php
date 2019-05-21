@@ -38,6 +38,7 @@ class DataMaster_Konten extends CI_Model {
 		$this->db->delete('konten_diskusi', array('id_konten' => $id));
 	}
 
+
 	
 }
 

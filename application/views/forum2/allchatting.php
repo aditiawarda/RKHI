@@ -14,18 +14,21 @@
                     <div class="form-group" style="float:left;">
                     <?php echo $d->isi ?>
                 </div>
+                 <div class="form-group" style="float:right;">
+                    <?php echo $d->tanggal_buat ?>
+                </div>
 
                 </div>
             </div>
         </div>
     </div>
-    
-<?php }?>
     <br>
 
+<?php }?>
+    
 <div class="col-sm-12">
 
-                        <button type="button" onclick="javascript:top.location.href='<?=base_url("/data_master/lihat/konten/{id_konten}");?>';" class="btn btn-primary fas fa-comment">Kembali</button>
+                        <button type="button" onclick="javascript:top.location.href='<?=base_url("/data_master");?>';" class="btn btn-primary fas fa-comment">Kembali</button>
                     </div>
 </div>
 <!-- End of Main Content -->

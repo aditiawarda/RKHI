@@ -34,8 +34,8 @@
                         <td> <?php echo $d->isi_konten ?></td>
                         <td> <?php echo $d->date_created_konten ?></td>
                         <td>
-                            <a href="" class="badge badge-pill badge-success">Edit</a>
-                            <button type="button" onclick="javascript:top.location.href='<?= base_url("/data_master/delete/konten/{$d->id_konten}"); ?>';" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>>
+                            <button type="button" onclick="javascript:top.location.href='<?= base_url("/data_master/edit/{$d->id_konten}"); ?>';" class="btn btn-danger btn-sm">Edit</button>
+                            <button type="button" onclick="javascript:top.location.href='<?= base_url("/data_master/delete/konten/{$d->id_konten}"); ?>';" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                     </tr>
                     <?php } ?>
                 </tbody>

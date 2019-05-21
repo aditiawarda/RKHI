@@ -21,11 +21,12 @@
             <div class="card text-right">
                 <h5 class="card-header text-left">Komentar</h5>
                 <div class="card-body">
+                    <form action="<?php echo base_url(). 'data_master/chat/'.$id_konten; ?>" method="post">
                     <div class="form-group col-sm-10">
-                        <input type="email" class="form-control" placeholder="Isi Komentar" id="exampleFormControlInput1">
+                        <input type="text" class="form-control" placeholder="Isi Komentar" name="isi" id="exampleFormControlInput1">
                     </div>
                     <div class="col-sm-12">
-                        <button type="button" onclick="javascript:top.location.href='<?=base_url("/data_master/addnew/{$id_konten}");?>';" class="btn btn-primary fas fa-comment">Kirim</button>
+                        <button type="button" onclick="javascript:top.location.href='<?=base_url("/data_master/chat/{$id_konten}");?>';" class="btn btn-primary fas fa-comment">Kirim</button>
                     </div>
                 </div>
             </div>
