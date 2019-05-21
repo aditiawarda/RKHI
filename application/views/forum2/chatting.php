@@ -26,7 +26,7 @@
                         <input type="text" class="form-control" placeholder="Isi Komentar" name="isi" id="exampleFormControlInput1">
                     </div>
                     <div class="col-sm-12">
-                        <button type="button" onclick="javascript:top.location.href='<?=base_url("/data_master/chat/{$id_konten}");?>';" class="btn btn-primary fas fa-comment">Kirim</button>
+                        <button type="submit"  class="btn btn-primary fas fa-comment">Kirim</button>
                     </div>
                 </div>
             </div>
