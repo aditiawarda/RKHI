@@ -45,6 +45,12 @@
                         </button>
                     </div>
 
+                    <div class="form-group">
+                        <button type="submit" name="submit" class="btn btn-primary btn-user btn-block">
+                             <p><?php echo anchor('admin/Auth/register', lang('login_register')); ?></p>
+                        </button>
+                    </div>
+
                 <?php echo form_close();?>
                 <p><?php echo anchor('admin/Auth/forgot_password', lang('login_forgot_password')); ?></p>
             </div>
