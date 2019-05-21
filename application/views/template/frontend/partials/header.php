@@ -10,7 +10,7 @@ $aktif = $this->uri->segment(2);
 <html lang="en">
 
 <head>
-	<title>RKHI | Home</title>
+	<title>RKHI | Beranda</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<!-- css files -->
@@ -20,6 +20,11 @@ $aktif = $this->uri->segment(2);
 	<link href="<?php echo base_url(); ?>frontend/web/css/imagelightbox.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>frontend/web/css/style.css" rel="stylesheet" media="all" />
 	<!-- /css files -->
+	<style>
+		html{
+			scroll-behavior: smooth;
+		}
+	</style>
 
 	<script src="<?php echo base_url() ?>frontend/web/js/jquery-1.11.1.min.js"></script>
 	<script src="<?php echo base_url() ?>frontend/web/js/bootstrap.js"></script>
@@ -48,7 +53,7 @@ $aktif = $this->uri->segment(2);
 
 						<!-- Tampilan login session saat user sudah melakukan login tampilkan dashboard di navbar -->
 							<?php if ($this->session->userdata('identity')) { ?> 
-								<li <?php if ($aktif == "login") echo 'class="active"'; ?>><a href="<?php echo base_url() ?>Frontend/forumdiskusi"><span data-hover="ForumDiskusi">Forum Diskusi</span></a><span class="line1">|</span></li>
+								<li <?php if ($aktif == "login") echo 'class="active"'; ?>><a href="<?php echo base_url('data_master') ?>"><span data-hover="ForumDiskusi">Forum Diskusi</span></a><span class="line1">|</span></li>
 								<li <?php if ($aktif == "login") echo 'class="active"'; ?>><a href="<?php echo base_url() ?>Auth/login"><span data-hover="Dashboard">Dashboard</span></a><span class="line1">|</span></li>
 							 <?php }
 
@@ -70,28 +75,28 @@ $aktif = $this->uri->segment(2);
 			<li id="callbacks1_s1" class="" style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 500ms ease-in-out;">
 				<img src="<?php echo base_url() ?>frontend/web/images/header/header1.jpg" alt="home" />
 				<div class="caption text-center">
-					<h3>Rumah Konsultasi Hukum Islam</h3>
+					<h3>RUMAH KONSULTASI HUKUM ISLAM</h3>
 					<p>Tegap langkahmu dalam mengahadi kerasnya kehidupan tidaklah cukup tanpa disertai tegapnya iman</p>
 				</div>
 			</li>
 			<li id="callbacks1_s2" class="" style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 500ms ease-in-out;">
 				<img src="<?php echo base_url() ?>frontend/web/images/header/header2.jpg" alt="home" />
 				<div class="caption text-center">
-					<h3>Rumah Konsultasi Hukum Islam</h3>
+					<h3>RUMAH KONSULTASI HUKUM ISLAM</h3>
 					<p>Secara tidak sadar, dengan kejujuran; kamu telah menyelamatkan dirimu sendiri</p>
 				</div>
 			</li>
 			<li id="callbacks1_s3" class="callbacks1_on" style="float: left; position: relative; opacity: 1; z-index: 2; display: list-item; transition: opacity 500ms ease-in-out;">
 				<img src="<?php echo base_url() ?>frontend/web/images/header/header3.jpg" alt="home" />
 				<div class="caption text-center">
-					<h3>Rumah Konsultasi Hukum Islam</h3>
+				<h3>RUMAH KONSULTASI HUKUM ISLAM</h3>
 					<p>Jangan katakan sulit. Ketahuilah; tidak ada yang sulit bila dikerjakan dengan sepenuh hati</p>
 				</div>
 			</li>
 			<li id="callbacks1_s6" class="callbacks1_on" style="float: left; position: relative; opacity: 1; z-index: 2; display: list-item; transition: opacity 500ms ease-in-out;">
 				<img src="<?php echo base_url() ?>frontend/web/images/header/header4.jpg" alt="home" />
 				<div class="caption text-center">
-					<h3>Rumah Konsultasi Hukum Islam</h3>
+					<h3>RUMAH KONSULTASI HUKUM ISLAM</h3>
 					<p> Budi pekerti yang tinggi adalah rasa malu terhadap diri sendiri.</p>
 				</div>
 			</li>

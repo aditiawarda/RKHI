@@ -2,7 +2,6 @@
 	<h1 style="text-decoration: underline;">Tambah Video</h1><br>
 </div>
 <tr class="danger">
-	<p style="background-color: yellow; color: black;">Nama video harus sama dengan judul</p>
 	<p style="background-color: yellow; color: black;">Format harus mkv atau mp4</p>
 </tr>
 
@@ -15,7 +14,7 @@
 				<th class="thead-light" style="font-weight: bold; font-family: sans-serif;">Kategori video</th>
 			</tr>
 			<tr class="active">
-				<td><input type="text" name="judul" class="form-control" id="judul"></td>
+				<td><input type="text" autocomplete="off" name="judul" class="form-control" id="judul"></td>
 				<td><input type="file" name="video" id="video"></td>
 				<td>
 					<select name="kategori" class="form-control form-control-lg">

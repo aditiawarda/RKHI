@@ -3,10 +3,11 @@
 	<div class="container">
 		<div class="w3-agileits-about-grids">
 			<div class="col-md-6 agile-about-left">
-				<h2 class="agileits-title">Selamat Datang di Situs Rumah Konsultasi Hukum Islam</h2>
+				<h2><font color="white">Selamat Datang di Situs Resmi Rumah Konsultasi Hukum Islam</font></h2>
 				<h5>Situs Rumah Konsultasi Hukum Islam di Kampus UIN SGD Bandung</h5>
 				<p>Rumah Konsultasi Hukum Islam adalah sebuah website layanan untuk mengembangkan hubungan kerja sama antara konselor dan klien.
-					<span>Website ini diharapkan dapat membantu kalangan masyarakat dalam menyelesaikan suatu masalah secara tidak langsung biasanya didasarkan pada karakteristik hubungan yang sama yang ditandai dengan saling mempercayai, bekerja sama dalam mengidentifikasikan masalah.</p>
+					<span>Website ini diharapkan dapat membantu kalangan masyarakat dalam menyelesaikan suatu masalah terutama dikaitkan dengan syariat islam dalam pemecahan masalahnya baik itu didelasaikan secara tidak langsung biasanya didasarkan pada karakteristik hubungan yang sama yang ditandai dengan saling mempercayai, bekerja sama dalam mengidentifikasikan masalah.
+						<br></p>
 			</div>
 			<div class="col-md-6 agile-about-right"></div>
 			<div class="clearfix"> </div>
@@ -180,7 +181,7 @@
 <!-- contact -->
 <div class="jarallax agileits-contact agile-section" id="contact">
 	<div class="container">
-		<h3 class="agileits-title">Kontak Kami</h3>
+		<h3 class="agileits-title"><font color="white">Kontak Kami</font></h3>
 		<div class="w3agile-contact">
 			<div class="col-md-5 col-sm-5 col-xs-6 w3_agileits-contact-left">
 				<div class="wthree-address">
