@@ -81,6 +81,34 @@ class Data_Master extends CI_Controller
 
 	}
 
+	public function edit($id){
+	$where = array('id_konten' => $id);
+	$data['konten_diskusi'] = $this->DataMaster_Konten->edit_data($where,'konten_diskusi')->result();
+	$this->load->view('templates/header', $data);
+	$this->load->view('templates/sidebar', $data);
+	$this->load->view('templates/topbar', $data);
+	$this->load->view('forum2/edit_diskusi',$data);
+	$this->load->view('templates/footer', $data);
+	}
+
+	public function update(){
+	$id_konten = $this->input->post('id_konten');
+	$judul_konten = $this->input->post('judul_konten');
+	$isi_konten = $this->input->post('isi_konten');
+ 
+	$data = array(
+		'judul_konten' => $judul_konten,
+		'isi_konten' => $isi_konten
+	);
+ 
+	$where = array(
+		'id_konten' => $id_konten
+	);
+ 
+	$this->DataMaster_Konten->update_data($where,$data,'konten_diskusi');
+	redirect('data_master/indexdiskusi');
+}
+
 	public function chat()
 	{
 		$name = $this->uri->segment('3');
