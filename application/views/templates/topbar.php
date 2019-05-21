@@ -85,24 +85,23 @@
                 </li>
 
                 <!-- Nav Item - Messages -->
-                <!-- <li class="nav-item dropdown no-arrow mx-1">
+                <li class="nav-item dropdown no-arrow mx-1">
                     <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-envelope fa-fw"></i>
                         <!-- Counter - Messages -->
                         <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                        <li><a href="<?php echo base_url() ?>"><span data-hover="Beranda"> </span></a><span class="line1"></span></li>    
-                        <li><a href="<?php echo base_url() ?>"><span data-hover="Beranda">Beranda</span></a><span class="line1">|</span></li>
+                            <li><a href="<?php echo base_url() ?>"><span data-hover="Beranda">Beranda</span></a></li>
                             <li><a href="<?php echo base_url() ?>Frontend/galeri"><span data-hover="Galeri">Galeri</span></a><span class="line1">|</span></li>
                             <li><a href="<?php echo base_url('data_master') ?>"><span data-hover="ForumDiskusi">Forum Diskusi</span></a><span class="line1">|</span></li>
                         </ul>
                     </div>
-                        <!-- <span class="badge badge-danger badge-counter">7</span> -->
+                        <span class="badge badge-danger badge-counter">7</span>
                     </a>
                     <!-- Dropdown - Messages -->
                     
-                <!-- </li>  -->
-<br>
+                </li>
+
                 <div class="topbar-divider d-none d-sm-block"></div>
 
                 <!-- Nav Item - User Information -->
@@ -112,7 +111,6 @@
                         <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                     </a>
                     <!-- Dropdown - User Information -->
-                
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="#">
                             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
