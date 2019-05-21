@@ -34,6 +34,3 @@ class Email extends CI_Controller
     }
     
 }
-
-/* End of file client.php */
-/* Location: ./application/controllers/client.php */
