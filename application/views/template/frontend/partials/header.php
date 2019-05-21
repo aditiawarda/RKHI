@@ -11,6 +11,7 @@ $aktif = $this->uri->segment(2);
 
 <head>
 	<title>RKHI | Beranda</title>
+	<link rel="shortcut icon" type="image/x-icon" href="frontend/web/images/favicon.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<!-- css files -->
