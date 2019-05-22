@@ -23,13 +23,13 @@ $lang['error_csrf'] = 'Form yang dikirim tidak lulus pemeriksaan keamanan kami.'
 
 // Login
 $lang['login_heading']         = 'Login';
-$lang['login_subheading']      = 'Silakan masuk dengan email/username dan password anda.';
+$lang['login_subheading']      = 'Silakan masuk dengan email/username dan kata sandi anda.';
 $lang['login_identity_label']  = 'Email:';
 $lang['login_password_label']  = 'Kata sandi:';
 $lang['login_remember_label']  = 'Ingatkan Saya:';
-$lang['login_submit_btn']      = 'Login';
+$lang['login_submit_btn']      = 'Masuk';
 $lang['login_register']        = 'Belum mempunyai akun? Buat disini!';
-$lang['login_forgot_password'] = 'Lupa Password?';
+$lang['login_forgot_password'] = 'Lupa kata sandi?';
 
 // Index
 $lang['index_heading']           = 'Pengguna';
@@ -62,7 +62,7 @@ $lang['create_user_lname_label']                       = 'Nama Akhir:';
 $lang['create_user_company_label']                     = 'Nama Perusahaan:';
 $lang['create_user_identity_label']                    = 'Identitas:';
 $lang['create_user_email_label']                       = 'Email:';
-$lang['create_user_phone_label']                       = 'No Telpon:';
+$lang['create_user_phone_label']                       = 'Telepon:';
 $lang['create_user_password_label']                    = 'Kata sandi:';
 $lang['create_user_password_confirm_label']            = 'Konfirmasi Kata Sandi:';
 $lang['create_user_submit_btn']                        = 'Buat Pengguna';
@@ -70,7 +70,7 @@ $lang['create_user_validation_fname_label']            = 'Nama Awal';
 $lang['create_user_validation_lname_label']            = 'Nama Akhir';
 $lang['create_user_validation_identity_label']         = 'Identitas';
 $lang['create_user_validation_email_label']            = 'Alamat Email';
-$lang['create_user_validation_phone_label']            = 'No. Telepon';
+$lang['create_user_validation_phone_label']            = 'Telepon';
 $lang['create_user_validation_company_label']          = 'Nama Perusahaan';
 $lang['create_user_validation_password_label']         = 'Kata Sandi';
 $lang['create_user_validation_password_confirm_label'] = 'Konfirmasi Kata Sandi';
