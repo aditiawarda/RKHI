@@ -30,7 +30,7 @@ class Video extends CI_Controller
 		$kategori = $this->input->post('kategori');
 
         $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'mkv|mp4|mp3';
+        $config['allowed_types'] = 'mkv|mp4';
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('video')) {
