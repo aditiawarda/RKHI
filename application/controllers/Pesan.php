@@ -9,7 +9,7 @@ class Pesan extends CI_Controller
         $this->load->library('Form_validation');
         $this->load->library('M_db');
         $this->load->model('Email_model');
-        $this->load->model('Video_model');
+        $this->load->model('Video_model');                          //
 		$this->load->model('Client_model','mod_client');
 		$this->load->model('Kriteria_model','mod_kriteria');
 		$this->load->model('Alternatif_model','mod_alternatif');
@@ -64,10 +64,10 @@ class Pesan extends CI_Controller
         ); 
         $this->email->initialize($config);
         $this->email->set_mailtype("html");
-        $this->email->from($from);
-        $this->email->to($to);
-        $this->email->subject($subject);
-        $this->email->message($emailContent);
+        $this->email->from($from);                  //email dari.
+        $this->email->to($to);                      //email untuk.
+        $this->email->subject($subject);            //subject email.
+        $this->email->message($emailContent);       //isi pesan email.
         $this->email->send();
 
         $this->session->set_flashdata('msg',"Mail has been sent successfully");
