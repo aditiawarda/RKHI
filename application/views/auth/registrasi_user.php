@@ -64,14 +64,10 @@
             </div>
             <div class="col-xs-4">
                 <button type="submit" class="btn btn-primary btn-block btn-flat">Daftar</button>
-                <?= anchor('admin/Auth', 'Batal', array('class' => 'btn btn-danger')) ?>
+                <?= anchor('admin/Auth', 'Kembali ke Laman Login', array('class' => 'btn btn-danger')) ?>
             </div>
             <?php echo form_close(); ?>
-            <div class="row">
-                <div class="col-xs-8">
-                    <a href="login">
-                        << Back To Login</a> </div> </div> </div> <!-- /.login-box-body -->
-                </div><!-- /.login-box -->
+           
 
 </body>
 
