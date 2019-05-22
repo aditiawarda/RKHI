@@ -88,15 +88,29 @@ class Video extends CI_Controller
 			$getName = $setName->row_array();
 			$getVideoName = './uploads/'.$getName['judul'].$getName['file_type'];
 			$deleteFileContent = unlink($getVideoName);
-			if($delete){
-				$this->session->set_flashdata('failed', 'Video Gagal Dihapus');
-			}else{
+			if($deleteFileContent){
 				$delete = $this->Video_model->delete($id);
-				$this->session->set_flashdata('success', 'Video Berhasil Dihapus');
+				if($delete){
+					$this->alertSuccess();
+				}else{
+					$this->alertFailed();
+				}
+			}else{
+				$this->alertFailed();
 			}
 		}else{
-			$this->session->set_flashdata('failed', 'Video Gagal Dihapus');
+			$this->alertFailed();
 		}
 		redirect('Video/delete');
+	}
+
+	private function alertSuccess()
+	{
+		return $this->session->set_flashdata('success', 'Video Berhasil Dihapus');
+	}
+
+	private function alertFailed()
+	{
+		return $this->session->set_flashdata('failed', 'Video Gagal Dihapus');
 	}
 }
