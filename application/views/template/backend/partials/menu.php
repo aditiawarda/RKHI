@@ -49,8 +49,10 @@
 				<li <?php if ($page == "hasil" || $page == "Hasil") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Perbandingan/hasil', '<span class=entypo-chart-bar>Hasil Konsultasi</span>'); ?></li>
 			</ul>
 		</li>
+
 		<li <?php if ($page == "pesan" || $page == "Pesan") echo 'class="active opened active" '; ?>><?= anchor('pesan', '<i class=entypo-mail></i><span>Pesan</span>'); ?></li>
 		
+		<li <?php if ($page == "chat" || $page == "Chat") echo 'class="active opened active" '; ?>><?= anchor('chat', '<i class=entypo-chat></i><span>Chat</span>'); ?></li>
 		<!-- Pengaturan -->
 		
 <?php if ($this->ion_auth->is_admin()) { ?>
