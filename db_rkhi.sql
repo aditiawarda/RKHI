@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Bulan Mei 2019 pada 18.01
--- Versi server: 10.1.30-MariaDB
--- Versi PHP: 7.2.2
+-- Generation Time: May 21, 2019 at 11:43 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `alternatif`
+-- Table structure for table `alternatif`
 --
 
 CREATE TABLE `alternatif` (
@@ -36,7 +36,7 @@ CREATE TABLE `alternatif` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `alternatif`
+-- Dumping data for table `alternatif`
 --
 
 INSERT INTO `alternatif` (`id_alternatif`, `id_client`, `status`, `total`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `alternatif` (`id_alternatif`, `id_client`, `status`, `total`) VALUE
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `alternatif_nilai`
+-- Table structure for table `alternatif_nilai`
 --
 
 CREATE TABLE `alternatif_nilai` (
@@ -61,7 +61,7 @@ CREATE TABLE `alternatif_nilai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `alternatif_nilai`
+-- Dumping data for table `alternatif_nilai`
 --
 
 INSERT INTO `alternatif_nilai` (`id_alternatif_nilai`, `id_alternatif`, `id_kriteria`, `id_subkriteria`, `id_nilai`) VALUES
@@ -99,28 +99,41 @@ INSERT INTO `alternatif_nilai` (`id_alternatif_nilai`, `id_alternatif`, `id_krit
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `chat`
+-- Table structure for table `book_resource`
+--
+
+CREATE TABLE `book_resource` (
+  `id` int(10) NOT NULL,
+  `judul` varchar(50) NOT NULL,
+  `file_type` varchar(10) NOT NULL,
+  `kategori` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `book_resource`
+--
+
+INSERT INTO `book_resource` (`id`, `judul`, `file_type`, `kategori`) VALUES
+(5, '62736', '62736.pdf', 'FIQIH IBADAH'),
+(6, 'Cobain', 'Cobain.pdf', 'HUKUM KELUARGA');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat`
 --
 
 CREATE TABLE `chat` (
   `id_chat` int(11) NOT NULL,
   `id_konten` int(11) NOT NULL,
-  `isi` varchar(255) NOT NULL
+  `isi` varchar(255) NOT NULL,
+  `tanggal_buat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `chat`
---
-
-INSERT INTO `chat` (`id_chat`, `id_konten`, `isi`) VALUES
-(1, 1, 'hgghg'),
-(2, 1, 'awdawdawdadwaw'),
-(3, 1, 'wdad');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `client`
+-- Table structure for table `client`
 --
 
 CREATE TABLE `client` (
@@ -131,7 +144,7 @@ CREATE TABLE `client` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `client`
+-- Dumping data for table `client`
 --
 
 INSERT INTO `client` (`id_client`, `nama_client`, `alamat_client`, `no_telpon`) VALUES
@@ -145,7 +158,7 @@ INSERT INTO `client` (`id_client`, `nama_client`, `alamat_client`, `no_telpon`) 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `galeri`
+-- Table structure for table `galeri`
 --
 
 CREATE TABLE `galeri` (
@@ -158,7 +171,7 @@ CREATE TABLE `galeri` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `groups`
+-- Table structure for table `groups`
 --
 
 CREATE TABLE `groups` (
@@ -168,7 +181,7 @@ CREATE TABLE `groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `groups`
+-- Dumping data for table `groups`
 --
 
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
@@ -178,7 +191,31 @@ INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `konten_diskusi`
+-- Table structure for table `kirim_email`
+--
+
+CREATE TABLE `kirim_email` (
+  `id_email` int(11) NOT NULL,
+  `nama_depan` varchar(60) NOT NULL,
+  `nama_belakang` varchar(60) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `subject` varchar(250) NOT NULL,
+  `pesan` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kirim_email`
+--
+
+INSERT INTO `kirim_email` (`id_email`, `nama_depan`, `nama_belakang`, `email`, `subject`, `pesan`) VALUES
+(1, 'rizki', 'aditia', 'aditia20.riz@gmail.com', 'ww', 'jhjhjhug'),
+(2, 'Banni ', 'Ferbiansyah', 'banniferbiansyah@gmail.com', 'Bantuan', 'Tolong bantu kami dalam masalah dagang'),
+(3, 'dwdw', 'aditia', 'cahyagita2@gmail.com', 'Promo akhir tahun', 'khhjghj');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `konten_diskusi`
 --
 
 CREATE TABLE `konten_diskusi` (
@@ -189,18 +226,10 @@ CREATE TABLE `konten_diskusi` (
   `date_created_konten` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `konten_diskusi`
---
-
-INSERT INTO `konten_diskusi` (`id_konten`, `id_user`, `judul_konten`, `isi_konten`, `date_created_konten`) VALUES
-(3, 0, 'ada', 'adad', '2019-05-19 08:40:53'),
-(4, 0, 'ad', 'adad', '2019-05-19 08:41:56');
-
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kriteria`
+-- Table structure for table `kriteria`
 --
 
 CREATE TABLE `kriteria` (
@@ -209,7 +238,7 @@ CREATE TABLE `kriteria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kriteria`
+-- Dumping data for table `kriteria`
 --
 
 INSERT INTO `kriteria` (`id_kriteria`, `nama_kriteria`) VALUES
@@ -222,7 +251,7 @@ INSERT INTO `kriteria` (`id_kriteria`, `nama_kriteria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kriteria_nilai`
+-- Table structure for table `kriteria_nilai`
 --
 
 CREATE TABLE `kriteria_nilai` (
@@ -233,7 +262,7 @@ CREATE TABLE `kriteria_nilai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kriteria_nilai`
+-- Dumping data for table `kriteria_nilai`
 --
 
 INSERT INTO `kriteria_nilai` (`id_kriteria_nilai`, `kriteria_id_dari`, `kriteria_id_tujuan`, `nilai`) VALUES
@@ -251,7 +280,7 @@ INSERT INTO `kriteria_nilai` (`id_kriteria_nilai`, `kriteria_id_dari`, `kriteria
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `login_attempts`
+-- Table structure for table `login_attempts`
 --
 
 CREATE TABLE `login_attempts` (
@@ -264,7 +293,7 @@ CREATE TABLE `login_attempts` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -272,7 +301,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`version`) VALUES
@@ -281,7 +310,7 @@ INSERT INTO `migrations` (`version`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `nilai_kategori`
+-- Table structure for table `nilai_kategori`
 --
 
 CREATE TABLE `nilai_kategori` (
@@ -290,7 +319,7 @@ CREATE TABLE `nilai_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `nilai_kategori`
+-- Dumping data for table `nilai_kategori`
 --
 
 INSERT INTO `nilai_kategori` (`id_nilai`, `nama_nilai`) VALUES
@@ -303,7 +332,7 @@ INSERT INTO `nilai_kategori` (`id_nilai`, `nama_nilai`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pesan`
+-- Table structure for table `pesan`
 --
 
 CREATE TABLE `pesan` (
@@ -318,7 +347,7 @@ CREATE TABLE `pesan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `subkriteria`
+-- Table structure for table `subkriteria`
 --
 
 CREATE TABLE `subkriteria` (
@@ -334,7 +363,7 @@ CREATE TABLE `subkriteria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `subkriteria`
+-- Dumping data for table `subkriteria`
 --
 
 INSERT INTO `subkriteria` (`id_subkriteria`, `nama_subkriteria`, `id_kriteria`, `tipe`, `nilai_minimum`, `nilai_maksimum`, `op_min`, `op_max`, `id_nilai`) VALUES
@@ -367,7 +396,7 @@ INSERT INTO `subkriteria` (`id_subkriteria`, `nama_subkriteria`, `id_kriteria`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `subkriteria_hasil`
+-- Table structure for table `subkriteria_hasil`
 --
 
 CREATE TABLE `subkriteria_hasil` (
@@ -377,7 +406,7 @@ CREATE TABLE `subkriteria_hasil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `subkriteria_hasil`
+-- Dumping data for table `subkriteria_hasil`
 --
 
 INSERT INTO `subkriteria_hasil` (`id_subkriteria_hasil`, `id_subkriteria`, `prioritas`) VALUES
@@ -410,7 +439,7 @@ INSERT INTO `subkriteria_hasil` (`id_subkriteria_hasil`, `id_subkriteria`, `prio
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `subkriteria_nilai`
+-- Table structure for table `subkriteria_nilai`
 --
 
 CREATE TABLE `subkriteria_nilai` (
@@ -422,7 +451,7 @@ CREATE TABLE `subkriteria_nilai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `subkriteria_nilai`
+-- Dumping data for table `subkriteria_nilai`
 --
 
 INSERT INTO `subkriteria_nilai` (`id_subkriteria_nilai`, `id_kriteria`, `subkriteria_id_dari`, `subkriteria_id_tujuan`, `nilai`) VALUES
@@ -480,7 +509,7 @@ INSERT INTO `subkriteria_nilai` (`id_subkriteria_nilai`, `id_kriteria`, `subkrit
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -504,16 +533,16 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', 'suPo-mllp0t.uEXFBxuWeu01206297e748015fbf', 1501472329, 'ct7pXg3o0mL4spmQnYiVn.', 1268889823, 1558276110, 1, 'Banni', 'Pebriansyah', 'ADMIN', '081296977703');
+(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', 'suPo-mllp0t.uEXFBxuWeu01206297e748015fbf', 1501472329, 'pCo9Uu05CCY8i5tuP3B66.', 1268889823, 1558473307, 1, 'Banni', 'Pebriansyah', 'ADMIN', '081296977703');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users_groups`
+-- Table structure for table `users_groups`
 --
 
 CREATE TABLE `users_groups` (
@@ -523,7 +552,7 @@ CREATE TABLE `users_groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `users_groups`
+-- Dumping data for table `users_groups`
 --
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
@@ -533,7 +562,7 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `video_content`
+-- Table structure for table `video_content`
 --
 
 CREATE TABLE `video_content` (
@@ -546,7 +575,7 @@ CREATE TABLE `video_content` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `video_kategori`
+-- Table structure for table `video_kategori`
 --
 
 CREATE TABLE `video_kategori` (
@@ -555,7 +584,7 @@ CREATE TABLE `video_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `video_kategori`
+-- Dumping data for table `video_kategori`
 --
 
 INSERT INTO `video_kategori` (`id`, `kategori_video`) VALUES
@@ -570,103 +599,115 @@ INSERT INTO `video_kategori` (`id`, `kategori_video`) VALUES
 --
 
 --
--- Indeks untuk tabel `alternatif`
+-- Indexes for table `alternatif`
 --
 ALTER TABLE `alternatif`
   ADD PRIMARY KEY (`id_alternatif`);
 
 --
--- Indeks untuk tabel `alternatif_nilai`
+-- Indexes for table `alternatif_nilai`
 --
 ALTER TABLE `alternatif_nilai`
   ADD PRIMARY KEY (`id_alternatif_nilai`);
 
 --
--- Indeks untuk tabel `chat`
+-- Indexes for table `book_resource`
+--
+ALTER TABLE `book_resource`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `chat`
 --
 ALTER TABLE `chat`
   ADD PRIMARY KEY (`id_chat`);
 
 --
--- Indeks untuk tabel `client`
+-- Indexes for table `client`
 --
 ALTER TABLE `client`
   ADD PRIMARY KEY (`id_client`);
 
 --
--- Indeks untuk tabel `galeri`
+-- Indexes for table `galeri`
 --
 ALTER TABLE `galeri`
   ADD PRIMARY KEY (`id_galeri`);
 
 --
--- Indeks untuk tabel `groups`
+-- Indexes for table `groups`
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `konten_diskusi`
+-- Indexes for table `kirim_email`
+--
+ALTER TABLE `kirim_email`
+  ADD PRIMARY KEY (`id_email`);
+
+--
+-- Indexes for table `konten_diskusi`
 --
 ALTER TABLE `konten_diskusi`
   ADD PRIMARY KEY (`id_konten`);
 
 --
--- Indeks untuk tabel `kriteria`
+-- Indexes for table `kriteria`
 --
 ALTER TABLE `kriteria`
   ADD PRIMARY KEY (`id_kriteria`);
 
 --
--- Indeks untuk tabel `kriteria_nilai`
+-- Indexes for table `kriteria_nilai`
 --
 ALTER TABLE `kriteria_nilai`
   ADD PRIMARY KEY (`id_kriteria_nilai`);
 
 --
--- Indeks untuk tabel `login_attempts`
+-- Indexes for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `nilai_kategori`
+-- Indexes for table `nilai_kategori`
 --
 ALTER TABLE `nilai_kategori`
   ADD PRIMARY KEY (`id_nilai`);
 
 --
--- Indeks untuk tabel `pesan`
+-- Indexes for table `pesan`
 --
 ALTER TABLE `pesan`
   ADD PRIMARY KEY (`id_pesan`);
 
 --
--- Indeks untuk tabel `subkriteria`
+-- Indexes for table `subkriteria`
 --
 ALTER TABLE `subkriteria`
   ADD PRIMARY KEY (`id_subkriteria`);
 
 --
--- Indeks untuk tabel `subkriteria_hasil`
+-- Indexes for table `subkriteria_hasil`
 --
 ALTER TABLE `subkriteria_hasil`
   ADD PRIMARY KEY (`id_subkriteria_hasil`);
 
 --
--- Indeks untuk tabel `subkriteria_nilai`
+-- Indexes for table `subkriteria_nilai`
 --
 ALTER TABLE `subkriteria_nilai`
   ADD PRIMARY KEY (`id_subkriteria_nilai`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users_groups`
+-- Indexes for table `users_groups`
 --
 ALTER TABLE `users_groups`
   ADD PRIMARY KEY (`id`),
@@ -675,141 +716,153 @@ ALTER TABLE `users_groups`
   ADD KEY `fk_users_groups_groups1_idx` (`group_id`);
 
 --
--- Indeks untuk tabel `video_content`
+-- Indexes for table `video_content`
 --
 ALTER TABLE `video_content`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `video_kategori`
+-- Indexes for table `video_kategori`
 --
 ALTER TABLE `video_kategori`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `alternatif`
+-- AUTO_INCREMENT for table `alternatif`
 --
 ALTER TABLE `alternatif`
   MODIFY `id_alternatif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
--- AUTO_INCREMENT untuk tabel `alternatif_nilai`
+-- AUTO_INCREMENT for table `alternatif_nilai`
 --
 ALTER TABLE `alternatif_nilai`
   MODIFY `id_alternatif_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=236;
 
 --
--- AUTO_INCREMENT untuk tabel `chat`
+-- AUTO_INCREMENT for table `book_resource`
 --
-ALTER TABLE `chat`
-  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `book_resource`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `client`
+-- AUTO_INCREMENT for table `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
   MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `galeri`
+-- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
   MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `groups`
+-- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `konten_diskusi`
+-- AUTO_INCREMENT for table `kirim_email`
 --
-ALTER TABLE `konten_diskusi`
-  MODIFY `id_konten` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `kirim_email`
+  MODIFY `id_email` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `kriteria`
+-- AUTO_INCREMENT for table `konten_diskusi`
+--
+ALTER TABLE `konten_diskusi`
+  MODIFY `id_konten` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `kriteria`
 --
 ALTER TABLE `kriteria`
   MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT untuk tabel `kriteria_nilai`
+-- AUTO_INCREMENT for table `kriteria_nilai`
 --
 ALTER TABLE `kriteria_nilai`
   MODIFY `id_kriteria_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=651;
 
 --
--- AUTO_INCREMENT untuk tabel `login_attempts`
+-- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `nilai_kategori`
+-- AUTO_INCREMENT for table `nilai_kategori`
 --
 ALTER TABLE `nilai_kategori`
   MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `pesan`
+-- AUTO_INCREMENT for table `pesan`
 --
 ALTER TABLE `pesan`
   MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `subkriteria`
+-- AUTO_INCREMENT for table `subkriteria`
 --
 ALTER TABLE `subkriteria`
   MODIFY `id_subkriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
--- AUTO_INCREMENT untuk tabel `subkriteria_hasil`
+-- AUTO_INCREMENT for table `subkriteria_hasil`
 --
 ALTER TABLE `subkriteria_hasil`
   MODIFY `id_subkriteria_hasil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
--- AUTO_INCREMENT untuk tabel `subkriteria_nilai`
+-- AUTO_INCREMENT for table `subkriteria_nilai`
 --
 ALTER TABLE `subkriteria_nilai`
   MODIFY `id_subkriteria_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=615;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `users_groups`
+-- AUTO_INCREMENT for table `users_groups`
 --
 ALTER TABLE `users_groups`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `video_content`
+-- AUTO_INCREMENT for table `video_content`
 --
 ALTER TABLE `video_content`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `video_kategori`
+-- AUTO_INCREMENT for table `video_kategori`
 --
 ALTER TABLE `video_kategori`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `users_groups`
+-- Constraints for table `users_groups`
 --
 ALTER TABLE `users_groups`
   ADD CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,

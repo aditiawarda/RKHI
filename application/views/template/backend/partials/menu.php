@@ -35,7 +35,9 @@
 				<li <?php if ($pag == "Subkriteria" || $pag == "subkriteria") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Subkriteria', '<span class=entypo-menu> Subkriteria</span>'); ?></li>
 			</ul>
 		</li>
+
 		<li <?php if ($pag == "client" || $pag == "Client") echo 'class="active opened active" '; ?>><?= anchor('Client', '<i class=entypo-doc-text></i><span>Client</span>'); ?></li>
+		
 		<li <?php if ($pag == "Alternatif" || $pag == "alternatif" || $page == "Banding" || $page == "banding" || $page == "Hasil" || $page == "hasil") echo 'class="active opened active multiple-expanded" '; ?>>
 			<a href="ui-panels.html">
 				<i class="entypo-book"></i>
@@ -47,7 +49,14 @@
 				<li <?php if ($page == "hasil" || $page == "Hasil") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Perbandingan/hasil', '<span class=entypo-chart-bar>Hasil Konsultasi</span>'); ?></li>
 			</ul>
 		</li>
+
 		<li <?php if ($page == "pesan" || $page == "Pesan") echo 'class="active opened active" '; ?>><?= anchor('pesan', '<i class=entypo-mail></i><span>Pesan</span>'); ?></li>
+		
+		<li <?php if ($page == "chat" || $page == "Chat") echo 'class="active opened active" '; ?>><?= anchor('chat', '<i class=entypo-chat></i><span>Chat</span>'); ?></li>
+		<!-- Pengaturan -->
+		
+<?php if ($this->ion_auth->is_admin()) { ?>
+
 		<li <?php if ($page == "Auth" || $page == "auth") echo 'class="active opened active multiple-expanded" '; ?>>
 			<a href="ui-panels.html">
 				<i class="entypo-tools"></i>
@@ -57,8 +66,33 @@
 				<li <?php if ($page == "Auth" || $page == "auth") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('admin/Auth', '<span class=entypo-user> Users</span>'); ?></li>
 			</ul>
 		</li>
+
+		<?php } ?>
+
+		<!-- Book Resource -->
+		<?php
+		if ($this->ion_auth->is_admin()) { ?>
+
+		<li <?php if ($pag == "Resource" || $pag == "resource" || $pag == "Masukkan" || $pag == "masukkan" || $page == "Hapus" || $page == "hapus") echo 'class="active opened active multiple-expanded" '; ?>>
+			<a href="ui-panels.html">
+				<i class="fas fa-book"></i>
+				<span>Buku Resource</span>
+			</a>
+			<ul>
+				<li <?php if ($page == "Resource" || $page == "resource") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Book', '<i class="fas fa-book"></i><span>Resource Buku</span>'); ?></li>
+
+				<li <?php if ($page == "Masukkan" || $page == "masukkan") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Book/masukan', '<i class="fas fa-plus"></i><span> Tambah Resource Buku</span>'); ?></li>
+
+				<li <?php if ($page == "Hapus" || $page == "hapus") echo 'class="active opened active multiple-expanded" '; ?>><?= anchor('Book/delete', '<i class="fas fa-minus-circle"></i><span> Hapus Buku</span>'); ?></li>
+			</ul>
+		</li>
+		<!-- END Book Resource -->
+		<?php } ?>
+
+<!-- Video Content -->
+		<?php
+		if ($this->ion_auth->is_admin()) { ?>
 		
-		<!-- Video Content -->
 		<li <?php if ($pag == "Masukkan" || $pag == "masukkan" || $page == "Hapus" || $page == "hapus") echo 'class="active opened active multiple-expanded" '; ?>>
 			<a href="ui-panels.html">
 				<i class="fas fa-file-video"></i>
@@ -75,6 +109,8 @@
 		<li>
 			<a href="javascript:;" onclick="jQuery('#modal-1').modal('show');"><i class="entypo-help"></i><span>Tentang</span></a>
 		</li>
+
+	<?php } ?>
 	</ul>
 
 </div>

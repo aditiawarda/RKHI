@@ -9,7 +9,8 @@
 <div class="row">
         <div class="col">
             <div class="card text-right">
-                <h5 class="card-header text-left" style="background-color:#4e73df;color:black"><?php echo $d->judul_konten ?><h6 style="color:red"> Dibuat <?php echo $d->date_created_konten ?></h6></h5>
+                <h5 class="card-header text-left" style="background-color:#4e73df;color:black"><?php echo $d->judul_konten ?></h5>
+                <h6 style="color:red"> Dibuat <?php echo $d->date_created_konten ?></h6>
 
                 <div class="card-body">
                     <div class="form-group" style="float:left;">

@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -7,9 +8,31 @@ class Data_Master extends CI_Controller
 		parent::__construct();		
 		$this->load->model('DataMaster_Konten');
 		$this->md_konten = $this->DataMaster_Konten;
-                $this->load->helper('url');
+		$this->load->model('Ion_auth_model', 'm');
+		$this->load->library(array('Ion_auth','form_validation'));
+		$this->load->helper(array('url','language'));
+		$this->getsecurity();
 	}
- 
+	//ini index
+	function getsecurity($value=''){
+		$username = $this->session->userdata('identity');
+		if ($username == '') {
+			// $this->session->sess_destroy();
+			redirect('');
+		}
+
+	}
+	public function logout()
+	{
+		$this->data['title'] = "Logout";
+
+		// log the user out
+		$logout = $this->ion_auth->logout();
+
+		// redirect them to the login page
+		$this->session->set_flashdata('message', $this->ion_auth->messages());
+		redirect('admin/Auth/login', 'refresh');
+	}
 	function index(){
 		$data['list_konten'] = $this->DataMaster_Konten->list_all()->result();
 		$this->load->view('templates/header', $data);
@@ -35,15 +58,7 @@ class Data_Master extends CI_Controller
 		switch ($name) {
 			
 			case 'konten':
-				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-					$id_konten = $this->security->xss_clean($this->input->post('id_konten'));
-					$judul_konten = $this->security->xss_clean($this->input->post('judul_konten'));
-					$isi_konten = $this->security->xss_clean($this->input->post('isi_konten'));
-					// validasi
-					$this->form_validation->set_rules('id_konten', 'ID Instansi', 'required');
-					$this->form_validation->set_rules('judul_konten', 'Judul Konten');
-					$this->form_validation->set_rules('isi_konten', 'Isi Konten');
-				}
+				
 				$data['id_konten'] = $this->md_konten->get_data($id)->id_konten;
 				$data['judul_konten'] = $this->md_konten->get_data($id)->judul_konten;
 				$data['isi_konten'] = $this->md_konten->get_data($id)->isi_konten;
@@ -52,7 +67,7 @@ class Data_Master extends CI_Controller
 			
 
 			default:
-				redirect(base_url());
+				redirect(base_url('data_master'));
 				break;
 		}
 
@@ -76,46 +91,72 @@ class Data_Master extends CI_Controller
 	}
 	public function addnew()
 	{
+		$judul_konten = $this->input->post('id_user');
+		$judul_konten = $this->input->post('judul_konten');
+		$isi_konten = $this->input->post('isi_konten');
+ 
+		$data = array(
+			'id_user' => $username,
+			'judul_konten' => $judul_konten,
+			'isi_konten' => $isi_konten
+			);
+		$this->DataMaster_Konten->input_data($data,'konten_diskusi');
+		redirect('data_master/index');
 
-		if (empty($this->uri->segment('3'))) {
-			redirect(base_url());
-		}
+	}
 
-		$name = 'konten';
+	public function edit($id){
+	$where = array('id_konten' => $id);
+	$data['konten_diskusi'] = $this->DataMaster_Konten->edit_data($where,'konten_diskusi')->result();
+	$this->load->view('templates/header', $data);
+	$this->load->view('templates/sidebar', $data);
+	$this->load->view('templates/topbar', $data);
+	$this->load->view('forum2/edit_diskusi',$data);
+	$this->load->view('templates/footer', $data);
+	}
 
-		switch ($name) {
-			
-			case 'konten':
-				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-					$judul_diskusi = $this->security->xss_clean($this->input->post('judul_diskusi'));
-					$isi_diskusi = $this->security->xss_clean($this->input->post('isi_diskusi'));
-
-					// validasi
-					$this->form_validation->set_rules('judul_diskusi', 'Judul Diskusi');
-					$this->form_validation->set_rules('isi_diskusi', 'Isi Diskusi');
-					if (!$this->form_validation->run()) {
-						$this->session->set_flashdata('msg_alert', 'Gagal membuat data instansi baru');
-						redirect(base_url('data_master/addnew/' . $name));
-					}
-					// to-do
-					$this->md_konten->add_new($judul_diskusi, $isi_diskusi);
-					redirect(base_url('data_master/indexdiskusi'));
-				}
-				break;
-
-			default:
-				redirect(base_url());
-				break;
-		}
-
-		$data['name'] = $name;
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/sidebar', $data);
-		$this->load->view('templates/topbar', $data);
-		$this->load->view('forum2/p_diskusi', $data);
-		$this->load->view('templates/footer', $data);
-
+	public function update(){
+	$id_konten = $this->input->post('id_konten');
+	$judul_konten = $this->input->post('judul_konten');
+	$isi_konten = $this->input->post('isi_konten');
+ 
+	$data = array(
+		'judul_konten' => $judul_konten,
+		'isi_konten' => $isi_konten
+	);
+ 
+	$where = array(
+		'id_konten' => $id_konten
+	);
+ 
+	$this->DataMaster_Konten->update_data($where,$data,'konten_diskusi');
+	redirect('data_master/indexdiskusi');
 }
+
+	public function chat()
+	{
+		$name = $this->uri->segment('3');
+
+		$id_konten = $this->input->post('id_konten');
+		$isi = $this->input->post('isi');
+ 
+		$data = array(
+			'id_konten' => $name,
+			'isi' => $isi
+			);
+		$this->DataMaster_Konten->input_data($data,'chat');
+		redirect('data_master/lihat/konten/'.$name);
+
+	}
+
+
+	public function isidiskusi(){
+		$this->load->view('templates/header');
+		$this->load->view('templates/sidebar');
+		$this->load->view('templates/topbar');
+		$this->load->view('forum2/p_diskusi');
+		$this->load->view('templates/footer');
+	}
 	function indexdiskusi(){
 		$data['list_konten'] = $this->DataMaster_Konten->list_all()->result();
 		$this->load->view('templates/header', $data);
